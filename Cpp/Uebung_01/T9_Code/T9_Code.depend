@@ -1,0 +1,38 @@
+# depslib dependency file v1.0
+1426784878 source:/home/wolfgang/Documents/Programming/C++/4.Semester/Übung_01/T9_Code/main.cpp
+	<iostream>
+	<string>
+	<map>
+	<algorithm>
+	<T9CodeConverter.h>
+	<unordered_set>
+	<chrono>
+	<istream>
+	<iterator>
+
+1426785006 /home/wolfgang/Documents/Programming/C++/4.Semester/Übung_01/T9_Code/include/T9CodeConverter.h
+	<iostream>
+	<map>
+	<algorithm>
+	<string>
+	<set>
+	<locale>
+	<list>
+	<fstream>
+	<utils.hpp>
+
+1426784969 source:/home/wolfgang/Documents/Programming/C++/4.Semester/Übung_01/T9_Code/src/T9CodeConverter.cpp
+	"T9CodeConverter.h"
+
+1426376482 /home/wolfgang/Documents/Programming/C++/4.Semester/Übung_01/T9_Code/include/utils.hpp
+	<string>
+	<fstream>
+
+1426376494 source:/home/wolfgang/Documents/Programming/C++/4.Semester/Übung_01/T9_Code/src/utils.cpp
+	"utils.hpp"
+	<string>
+	<ostream>
+	<fstream>
+	<algorithm>
+	<iostream>
+

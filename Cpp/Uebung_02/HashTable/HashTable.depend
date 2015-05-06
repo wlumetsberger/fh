@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1428069907 source:/home/wolfgang/Documents/Network/DemonHangman/HashTable/main.cpp
+	<iostream>
+	"./include/HashTable.h"
+	<functional>
+	<string.h>
+	<hash_set>
+
+1427836579 source:/home/wolfgang/Documents/Network/DemonHangman/HashTable/src/HashTable.cpp
+	"../include/HashTable.h"
+
+1428070977 /home/wolfgang/Documents/Network/DemonHangman/HashTable/include/HashTable.h
+	<algorithm>
+	<map>
+	<list>
+	<iostream>
+	<iterator>
+	<iomanip>
+
+1428071383 source:/home/wolfgang/Documents/Programming/C++/4.Semester/Übung_02/HashTable/main.cpp
+	<iostream>
+	"./include/HashTable.h"
+	<functional>
+	<string.h>
+	<hash_set>
+
+1428070977 /home/wolfgang/Documents/Programming/C++/4.Semester/Übung_02/HashTable/include/HashTable.h
+	<algorithm>
+	<map>
+	<list>
+	<iostream>
+	<iterator>
+	<iomanip>
+
+1427836579 source:/home/wolfgang/Documents/Programming/C++/4.Semester/Übung_02/HashTable/src/HashTable.cpp
+	"../include/HashTable.h"
+

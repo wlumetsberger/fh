@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" hostname="ubuntu" id="0" name="HammingNumbersTest" package="at.fhhagenberg.swe.uebung03" skipped="0" tests="3" time="0.388" timestamp="2015-04-16T14:34:09">
+      <properties>
+          <property name="java.vendor" value="Oracle Corporation" />
+
+          <property name="env.SESSION_MANAGER" value="local/ubuntu:@/tmp/.ICE-unix/2247,unix/ubuntu:/tmp/.ICE-unix/2247" />
+
+          <property name="env.IM_CONFIG_PHASE" value="1" />
+
+          <property name="env.LESSOPEN" value="| /usr/bin/lesspipe %s" />
+
+          <property name="sun.java.launcher" value="SUN_STANDARD" />
+
+          <property name="env.QT_IM_MODULE" value="ibus" />
+
+          <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+
+          <property name="os.name" value="Linux" />
+
+          <property name="env.UPSTART_SESSION" value="unix:abstract=/com/ubuntu/upstart-session/1000/2077" />
+
+          <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes" />
+
+          <property name="env.PWD" value="/home/wolfgang/Documents/Programming/Java/4.Semester/Uebung_03" />
+
+          <property name="sun.desktop" value="gnome" />
+
+          <property name="env.LANG" value="en_US.UTF-8" />
+
+          <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+
+          <property name="env.XDG_MENU_PREFIX" value="gnome-" />
+
+          <property name="ant.home" value="/usr/share/ant" />
+
+          <property name="java.runtime.version" value="1.8.0_40-b25" />
+
+          <property name="env.GTK_IM_MODULE" value="ibus" />
+
+          <property name="env.DEFAULTS_PATH" value="/usr/share/gconf/ubuntu.default.path" />
+
+          <property name="ant.file.type.Uebung_03" value="file" />
+
+          <property name="env.XDG_VTNR" value="7" />
+
+          <property name="env.DISPLAY" value=":0" />
+
+          <property name="user.name" value="wolfgang" />
+
+          <property name="env.QT4_IM_MODULE" value="xim" />
+
+          <property name="env._" value="/usr/bin/ant" />
+
+          <property name="env.USER" value="wolfgang" />
+
+          <property name="env.SHELL" value="/bin/bash" />
+
+          <property name="env.DESKTOP_SESSION" value="ubuntu" />
+
+          <property name="env.XDG_DATA_DIRS" value="/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/" />
+
+          <property name="env.NLSPATH" value="/usr/dt/lib/nls/msg/%L/%N.cat" />
+
+          <property name="env.PATH" value="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games" />
+
+          <property name="env.XDG_CURRENT_DESKTOP" value="Unity" />
+
+          <property name="user.language" value="en" />
+
+          <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64" />
+
+          <property name="env.TEXTDOMAIN" value="im-config" />
+
+          <property name="ant.project.default-target" value="build" />
+
+          <property name="env.SELINUX_INIT" value="YES" />
+
+          <property name="ant.project.name" value="Uebung_03" />
+
+          <property name="java.version" value="1.8.0_40" />
+
+          <property name="user.timezone" value="Europe/Vienna" />
+
+          <property name="env.DBUS_SESSION_BUS_ADDRESS" value="unix:abstract=/tmp/dbus-I2mjRr7vQd" />
+
+          <property name="sun.arch.data.model" value="64" />
+
+          <property name="env.COMPIZ_CONFIG_PROFILE" value="ubuntu" />
+
+          <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-oracle/jre/lib/endorsed" />
+
+          <property name="sun.cpu.isalist" value="" />
+
+          <property name="sun.jnu.encoding" value="UTF-8" />
+
+          <property name="file.encoding.pkg" value="sun.io" />
+
+          <property name="env.SHLVL" value="1" />
+
+          <property name="file.separator" value="/" />
+
+          <property name="java.specification.name" value="Java Platform API Specification" />
+
+          <property name="env.GNOME_DESKTOP_SESSION_ID" value="this-is-deprecated" />
+
+          <property name="java.class.version" value="52.0" />
+
+          <property name="env.GDMSESSION" value="ubuntu" />
+
+          <property name="user.country" value="US" />
+
+          <property name="env.GNOME_KEYRING_PID" value="2071" />
+
+          <property name="java.home" value="/usr/lib/jvm/java-8-oracle/jre" />
+
+          <property name="java.vm.info" value="mixed mode" />
+
+          <property name="env.LOGNAME" value="wolfgang" />
+
+          <property name="ant.file" value="/home/wolfgang/Documents/Programming/Java/4.Semester/Uebung_03/build.xml" />
+
+          <property name="os.version" value="3.13.0-44-generic" />
+
+          <property name="path.separator" value=":" />
+
+          <property name="java.vm.version" value="25.40-b25" />
+
+          <property name="env.LANGUAGE" value="en_US" />
+
+          <property name="env.TEXTDOMAINDIR" value="/usr/share/locale/" />
+
+          <property name="ant.library.dir" value="/usr/share/ant/lib" />
+
+          <property name="env.XDG_SESSION_PATH" value="/org/freedesktop/DisplayManager/Session0" />
+
+          <property name="junit.output.dir" value="junit" />
+
+          <property name="env.QT_QPA_PLATFORMTHEME" value="appmenu-qt5" />
+
+          <property name="env.SESSIONTYPE" value="gnome-session" />
+
+          <property name="java.awt.printerjob" value="sun.print.PSPrinterJob" />
+
+          <property name="env.TERM" value="xterm" />
+
+          <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+
+          <property name="awt.toolkit" value="sun.awt.X11.XToolkit" />
+
+          <property name="env.XMODIFIERS" value="@im=ibus" />
+
+          <property name="env.GDM_LANG" value="en_US" />
+
+          <property name="target" value="1.8" />
+
+          <property name="user.home" value="/home/wolfgang" />
+
+          <property name="env.JOB" value="dbus" />
+
+          <property name="env.OLDPWD" value="/home/wolfgang/Documents/Programming/Java/4.Semester" />
+
+          <property name="java.specification.vendor" value="Oracle Corporation" />
+
+          <property name="env.VTE_VERSION" value="3409" />
+
+          <property name="env.WINDOWID" value="25165835" />
+
+          <property name="java.vendor.url" value="http://java.oracle.com/" />
+
+          <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib" />
+
+          <property name="env.XDG_SEAT" value="seat0" />
+
+          <property name="java.vm.vendor" value="Oracle Corporation" />
+
+          <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+
+          <property name="ant.version" value="Apache Ant(TM) version 1.9.3 compiled on April 8 2014" />
+
+          <property name="java.class.path" value="/home/wolfgang/Documents/Programming/Java/4.Semester/Uebung_03/bin:/home/wolfgang/Documents/Programming/Java/4.Semester/Uebung_03/lib/org.junit_4.11.0.v201303080030/junit.jar:/home/wolfgang/Documents/Programming/Java/4.Semester/Uebung_03/lib/org.hamcrest.core_1.3.0.v201303031735.jar:/usr/share/java/ant-launcher-1.9.3.jar:/usr/share/ant/lib/ant.jar:/usr/share/ant/lib/ant-junit.jar:/usr/share/ant/lib/ant-junit4.jar" />
+
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner at.fhhagenberg.swe.uebung03.HammingNumbersTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.OutErrSummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/wolfgang/Documents/Programming/Java/4.Semester/Uebung_03/junit/TEST-at.fhhagenberg.swe.uebung03.HammingNumbersTest.xml crashfile=/home/wolfgang/Documents/Programming/Java/4.Semester/Uebung_03/junitvmwatcher5062252471616543754.properties propsfile=/home/wolfgang/Documents/Programming/Java/4.Semester/Uebung_03/junit2823830525364360451.properties" />
+
+          <property name="env.XDG_SESSION_ID" value="c2" />
+
+          <property name="env.XFILESEARCHPATH" value="/usr/dt/app-defaults/%L/Dt" />
+
+          <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+
+          <property name="ant.file.type" value="file" />
+
+          <property name="java.vm.specification.version" value="1.8" />
+
+          <property name="sun.cpu.endian" value="little" />
+
+          <property name="sun.os.patch.level" value="unknown" />
+
+          <property name="debuglevel" value="source,lines,vars" />
+
+          <property name="env.HOME" value="/home/wolfgang" />
+
+          <property name="env.XDG_SEAT_PATH" value="/org/freedesktop/DisplayManager/Seat0" />
+
+          <property name="env.LS_COLORS" value="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:" />
+
+          <property name="java.io.tmpdir" value="/tmp" />
+
+          <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+
+          <property name="env.SSH_AUTH_SOCK" value="/run/user/1000/keyring-217OJj/ssh" />
+
+          <property name="env.CLUTTER_IM_MODULE" value="xim" />
+
+          <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment" />
+
+          <property name="os.arch" value="amd64" />
+
+          <property name="env.INSTANCE" value="" />
+
+          <property name="java.ext.dirs" value="/usr/lib/jvm/java-8-oracle/jre/lib/ext:/usr/java/packages/lib/ext" />
+
+          <property name="env.XDG_RUNTIME_DIR" value="/run/user/1000" />
+
+          <property name="user.dir" value="/home/wolfgang/Documents/Programming/Java/4.Semester/Uebung_03" />
+
+          <property name="env.SESSION" value="ubuntu" />
+
+          <property name="env.XAUTHORITY" value="/home/wolfgang/.Xauthority" />
+
+          <property name="env.MANDATORY_PATH" value="/usr/share/gconf/ubuntu.mandatory.path" />
+
+          <property name="env.GTK_MODULES" value="overlay-scrollbar:unity-gtk-module" />
+
+          <property name="line.separator" value="&#xa;" />
+
+          <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+
+          <property name="env.COLORTERM" value="gnome-terminal" />
+
+          <property name="basedir" value="/home/wolfgang/Documents/Programming/Java/4.Semester/Uebung_03" />
+
+          <property name="env.XDG_GREETER_DATA_DIR" value="/var/lib/lightdm-data/wolfgang" />
+
+          <property name="ant.java.version" value="1.8" />
+
+          <property name="ant.core.lib" value="/usr/share/ant/lib/ant.jar" />
+
+          <property name="source" value="1.8" />
+
+          <property name="file.encoding" value="UTF-8" />
+
+          <property name="env.COMPIZ_BIN_PATH" value="/usr/bin/" />
+
+          <property name="ant.file.Uebung_03" value="/home/wolfgang/Documents/Programming/Java/4.Semester/Uebung_03/build.xml" />
+
+          <property name="env.GPG_AGENT_INFO" value="/run/user/1000/keyring-217OJj/gpg:0:1" />
+
+          <property name="java.specification.version" value="1.8" />
+
+          <property name="env.GNOME_KEYRING_CONTROL" value="/run/user/1000/keyring-217OJj" />
+
+          <property name="env.XDG_CONFIG_DIRS" value="/etc/xdg/xdg-ubuntu:/usr/share/upstart/xdg:/etc/xdg" />
+
+          <property name="ant.project.invoked-targets" value="HammingNumbersTest" />
+
+          <property name="env.LESSCLOSE" value="/usr/bin/lesspipe %s %s" />
+
+      </properties>
+
+      <testcase classname="at.fhhagenberg.swe.uebung03.HammingNumbersTest" name="calculate10Numbers" time="0.012" />
+
+      <testcase classname="at.fhhagenberg.swe.uebung03.HammingNumbersTest" name="illegalParameter" time="0.0" />
+
+      <testcase classname="at.fhhagenberg.swe.uebung03.HammingNumbersTest" name="calculate10000Numbers" time="0.114" />
+
+      <system-out><![CDATA[Duration in Millis: 0
+1 | 2 | 3 | 4 | 5 | 6 | 8 | 9 | 10 | 12 | Duration in Millis: 101
+]]></system-out>
+
+      <system-err />
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="ubuntu" id="1" name="SortAlgorithmsTest" package="at.fhhagenberg.swe.uebung03" skipped="0" tests="7" time="0.735" timestamp="2015-04-16T14:34:22">
+      <properties>
+          <property name="java.vendor" value="Oracle Corporation" />
+
+          <property name="env.SESSION_MANAGER" value="local/ubuntu:@/tmp/.ICE-unix/2247,unix/ubuntu:/tmp/.ICE-unix/2247" />
+
+          <property name="env.IM_CONFIG_PHASE" value="1" />
+
+          <property name="env.LESSOPEN" value="| /usr/bin/lesspipe %s" />
+
+          <property name="sun.java.launcher" value="SUN_STANDARD" />
+
+          <property name="env.QT_IM_MODULE" value="ibus" />
+
+          <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+
+          <property name="os.name" value="Linux" />
+
+          <property name="env.UPSTART_SESSION" value="unix:abstract=/com/ubuntu/upstart-session/1000/2077" />
+
+          <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes" />
+
+          <property name="env.PWD" value="/home/wolfgang/Documents/Programming/Java/4.Semester/Uebung_03" />
+
+          <property name="sun.desktop" value="gnome" />
+
+          <property name="env.LANG" value="en_US.UTF-8" />
+
+          <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+
+          <property name="env.XDG_MENU_PREFIX" value="gnome-" />
+
+          <property name="ant.home" value="/usr/share/ant" />
+
+          <property name="java.runtime.version" value="1.8.0_40-b25" />
+
+          <property name="env.GTK_IM_MODULE" value="ibus" />
+
+          <property name="env.DEFAULTS_PATH" value="/usr/share/gconf/ubuntu.default.path" />
+
+          <property name="ant.file.type.Uebung_03" value="file" />
+
+          <property name="env.XDG_VTNR" value="7" />
+
+          <property name="env.DISPLAY" value=":0" />
+
+          <property name="user.name" value="wolfgang" />
+
+          <property name="env.QT4_IM_MODULE" value="xim" />
+
+          <property name="env._" value="/usr/bin/ant" />
+
+          <property name="env.USER" value="wolfgang" />
+
+          <property name="env.SHELL" value="/bin/bash" />
+
+          <property name="env.DESKTOP_SESSION" value="ubuntu" />
+
+          <property name="env.XDG_DATA_DIRS" value="/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/" />
+
+          <property name="env.NLSPATH" value="/usr/dt/lib/nls/msg/%L/%N.cat" />
+
+          <property name="env.PATH" value="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games" />
+
+          <property name="env.XDG_CURRENT_DESKTOP" value="Unity" />
+
+          <property name="user.language" value="en" />
+
+          <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64" />
+
+          <property name="env.TEXTDOMAIN" value="im-config" />
+
+          <property name="ant.project.default-target" value="build" />
+
+          <property name="env.SELINUX_INIT" value="YES" />
+
+          <property name="ant.project.name" value="Uebung_03" />
+
+          <property name="java.version" value="1.8.0_40" />
+
+          <property name="user.timezone" value="Europe/Vienna" />
+
+          <property name="env.DBUS_SESSION_BUS_ADDRESS" value="unix:abstract=/tmp/dbus-I2mjRr7vQd" />
+
+          <property name="sun.arch.data.model" value="64" />
+
+          <property name="env.COMPIZ_CONFIG_PROFILE" value="ubuntu" />
+
+          <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-oracle/jre/lib/endorsed" />
+
+          <property name="sun.cpu.isalist" value="" />
+
+          <property name="sun.jnu.encoding" value="UTF-8" />
+
+          <property name="file.encoding.pkg" value="sun.io" />
+
+          <property name="env.SHLVL" value="1" />
+
+          <property name="file.separator" value="/" />
+
+          <property name="java.specification.name" value="Java Platform API Specification" />
+
+          <property name="env.GNOME_DESKTOP_SESSION_ID" value="this-is-deprecated" />
+
+          <property name="java.class.version" value="52.0" />
+
+          <property name="env.GDMSESSION" value="ubuntu" />
+
+          <property name="user.country" value="US" />
+
+          <property name="env.GNOME_KEYRING_PID" value="2071" />
+
+          <property name="java.home" value="/usr/lib/jvm/java-8-oracle/jre" />
+
+          <property name="java.vm.info" value="mixed mode" />
+
+          <property name="env.LOGNAME" value="wolfgang" />
+
+          <property name="ant.file" value="/home/wolfgang/Documents/Programming/Java/4.Semester/Uebung_03/build.xml" />
+
+          <property name="os.version" value="3.13.0-44-generic" />
+
+          <property name="path.separator" value=":" />
+
+          <property name="java.vm.version" value="25.40-b25" />
+
+          <property name="env.LANGUAGE" value="en_US" />
+
+          <property name="env.TEXTDOMAINDIR" value="/usr/share/locale/" />
+
+          <property name="ant.library.dir" value="/usr/share/ant/lib" />
+
+          <property name="env.XDG_SESSION_PATH" value="/org/freedesktop/DisplayManager/Session0" />
+
+          <property name="junit.output.dir" value="junit" />
+
+          <property name="env.QT_QPA_PLATFORMTHEME" value="appmenu-qt5" />
+
+          <property name="env.SESSIONTYPE" value="gnome-session" />
+
+          <property name="java.awt.printerjob" value="sun.print.PSPrinterJob" />
+
+          <property name="env.TERM" value="xterm" />
+
+          <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+
+          <property name="awt.toolkit" value="sun.awt.X11.XToolkit" />
+
+          <property name="env.XMODIFIERS" value="@im=ibus" />
+
+          <property name="env.GDM_LANG" value="en_US" />
+
+          <property name="target" value="1.8" />
+
+          <property name="user.home" value="/home/wolfgang" />
+
+          <property name="env.JOB" value="dbus" />
+
+          <property name="env.OLDPWD" value="/home/wolfgang/Documents/Programming/Java/4.Semester" />
+
+          <property name="java.specification.vendor" value="Oracle Corporation" />
+
+          <property name="env.VTE_VERSION" value="3409" />
+
+          <property name="env.WINDOWID" value="25165835" />
+
+          <property name="java.vendor.url" value="http://java.oracle.com/" />
+
+          <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib" />
+
+          <property name="env.XDG_SEAT" value="seat0" />
+
+          <property name="java.vm.vendor" value="Oracle Corporation" />
+
+          <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+
+          <property name="ant.version" value="Apache Ant(TM) version 1.9.3 compiled on April 8 2014" />
+
+          <property name="java.class.path" value="/home/wolfgang/Documents/Programming/Java/4.Semester/Uebung_03/bin:/home/wolfgang/Documents/Programming/Java/4.Semester/Uebung_03/lib/org.junit_4.11.0.v201303080030/junit.jar:/home/wolfgang/Documents/Programming/Java/4.Semester/Uebung_03/lib/org.hamcrest.core_1.3.0.v201303031735.jar:/usr/share/java/ant-launcher-1.9.3.jar:/usr/share/ant/lib/ant.jar:/usr/share/ant/lib/ant-junit.jar:/usr/share/ant/lib/ant-junit4.jar" />
+
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner at.fhhagenberg.swe.uebung03.SortAlgorithmsTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.OutErrSummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/wolfgang/Documents/Programming/Java/4.Semester/Uebung_03/junit/TEST-at.fhhagenberg.swe.uebung03.SortAlgorithmsTest.xml crashfile=/home/wolfgang/Documents/Programming/Java/4.Semester/Uebung_03/junitvmwatcher3015356582853149088.properties propsfile=/home/wolfgang/Documents/Programming/Java/4.Semester/Uebung_03/junit2276478210728764064.properties" />
+
+          <property name="env.XDG_SESSION_ID" value="c2" />
+
+          <property name="env.XFILESEARCHPATH" value="/usr/dt/app-defaults/%L/Dt" />
+
+          <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+
+          <property name="ant.file.type" value="file" />
+
+          <property name="java.vm.specification.version" value="1.8" />
+
+          <property name="sun.cpu.endian" value="little" />
+
+          <property name="sun.os.patch.level" value="unknown" />
+
+          <property name="debuglevel" value="source,lines,vars" />
+
+          <property name="env.HOME" value="/home/wolfgang" />
+
+          <property name="env.XDG_SEAT_PATH" value="/org/freedesktop/DisplayManager/Seat0" />
+
+          <property name="env.LS_COLORS" value="rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:" />
+
+          <property name="java.io.tmpdir" value="/tmp" />
+
+          <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+
+          <property name="env.SSH_AUTH_SOCK" value="/run/user/1000/keyring-217OJj/ssh" />
+
+          <property name="env.CLUTTER_IM_MODULE" value="xim" />
+
+          <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment" />
+
+          <property name="os.arch" value="amd64" />
+
+          <property name="env.INSTANCE" value="" />
+
+          <property name="java.ext.dirs" value="/usr/lib/jvm/java-8-oracle/jre/lib/ext:/usr/java/packages/lib/ext" />
+
+          <property name="env.XDG_RUNTIME_DIR" value="/run/user/1000" />
+
+          <property name="user.dir" value="/home/wolfgang/Documents/Programming/Java/4.Semester/Uebung_03" />
+
+          <property name="env.SESSION" value="ubuntu" />
+
+          <property name="env.XAUTHORITY" value="/home/wolfgang/.Xauthority" />
+
+          <property name="env.MANDATORY_PATH" value="/usr/share/gconf/ubuntu.mandatory.path" />
+
+          <property name="env.GTK_MODULES" value="overlay-scrollbar:unity-gtk-module" />
+
+          <property name="line.separator" value="&#xa;" />
+
+          <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+
+          <property name="env.COLORTERM" value="gnome-terminal" />
+
+          <property name="basedir" value="/home/wolfgang/Documents/Programming/Java/4.Semester/Uebung_03" />
+
+          <property name="env.XDG_GREETER_DATA_DIR" value="/var/lib/lightdm-data/wolfgang" />
+
+          <property name="ant.java.version" value="1.8" />
+
+          <property name="ant.core.lib" value="/usr/share/ant/lib/ant.jar" />
+
+          <property name="source" value="1.8" />
+
+          <property name="file.encoding" value="UTF-8" />
+
+          <property name="env.COMPIZ_BIN_PATH" value="/usr/bin/" />
+
+          <property name="ant.file.Uebung_03" value="/home/wolfgang/Documents/Programming/Java/4.Semester/Uebung_03/build.xml" />
+
+          <property name="env.GPG_AGENT_INFO" value="/run/user/1000/keyring-217OJj/gpg:0:1" />
+
+          <property name="java.specification.version" value="1.8" />
+
+          <property name="env.GNOME_KEYRING_CONTROL" value="/run/user/1000/keyring-217OJj" />
+
+          <property name="env.XDG_CONFIG_DIRS" value="/etc/xdg/xdg-ubuntu:/usr/share/upstart/xdg:/etc/xdg" />
+
+          <property name="ant.project.invoked-targets" value="SortAlgorithmsTest" />
+
+          <property name="env.LESSCLOSE" value="/usr/bin/lesspipe %s %s" />
+
+      </properties>
+
+      <testcase classname="at.fhhagenberg.swe.uebung03.SortAlgorithmsTest" name="runCompetitionHeapQuickSort" time="0.494" />
+
+      <testcase classname="at.fhhagenberg.swe.uebung03.SortAlgorithmsTest" name="testQuickSortWithEmptyArray" time="0.0" />
+
+      <testcase classname="at.fhhagenberg.swe.uebung03.SortAlgorithmsTest" name="testHeapSort" time="0.0" />
+
+      <testcase classname="at.fhhagenberg.swe.uebung03.SortAlgorithmsTest" name="testRandomHeapSort" time="0.0" />
+
+      <testcase classname="at.fhhagenberg.swe.uebung03.SortAlgorithmsTest" name="testHeapSortWithEmptyArray" time="0.0" />
+
+      <testcase classname="at.fhhagenberg.swe.uebung03.SortAlgorithmsTest" name="testRandomQuickSort" time="0.002" />
+
+      <testcase classname="at.fhhagenberg.swe.uebung03.SortAlgorithmsTest" name="testQuickSort" time="0.0" />
+
+      <system-out><![CDATA[COMPETITION
+QuickSort Summary:
+Duration: 153810501 , Swaps: 2879370 , Compares: 8860549 , ReCalls: 369259
+HeapSort Summary:
+Duration: 221996756 , Swaps: 7318145 , Compares: 24216917 , ReCalls: 0
+HeapSort With 5000 No
+Statistics for: QuickSort
+Swaps: 20662
+Compares: 75213
+RecCalls: 3580
+Duration: 314251
+QuickSort With 5000 No
+Statistics for: HeapSort
+Swaps: 56636
+Compares: 184447
+RecCalls: 0
+Duration: 745070
+]]></system-out>
+
+      <system-err />
+
+  </testsuite>
+</testsuites>
