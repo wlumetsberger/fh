@@ -2,34 +2,42 @@ package at.fhhagenberg.swe4.campinaAsAService.models;
 
 import java.util.List;
 
+import at.fhhagenberg.swe4.campinaAsAService.annotations.ViewProperty;
+
 public class User {
 
-	private String forName;
+	@ViewProperty(name="Firstname")
+	private String firstName;
+	@ViewProperty(name="Lastname")
 	private String lastName;
+	@ViewProperty(name="Email")
 	private String email;
+	@ViewProperty(name="Password")
 	private String password;
+	@ViewProperty(name="Locked")
 	private boolean locked;
+	@ViewProperty(name="Orders", showInDefaultModel=false)
 	private List<Order> orders;
 
 	public User() {
 	}
 
-	public User(String forName, String lastName, String email, String password,
+	public User(String firstName, String lastName, String email, String password,
 			boolean locked) {
 		super();
-		this.forName = forName;
+		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
 		this.locked = locked;
 	}
 
-	public String getForName() {
-		return forName;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setForName(String forName) {
-		this.forName = forName;
+	public void FirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public String getLastName() {
@@ -76,7 +84,7 @@ public class User {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((forName == null) ? 0 : forName.hashCode());
+		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result
 				+ ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + (locked ? 1231 : 1237);
@@ -99,10 +107,10 @@ public class User {
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
-		if (forName == null) {
-			if (other.forName != null)
+		if (firstName == null) {
+			if (other.firstName != null)
 				return false;
-		} else if (!forName.equals(other.forName))
+		} else if (!firstName.equals(other.firstName))
 			return false;
 		if (lastName == null) {
 			if (other.lastName != null)
@@ -118,5 +126,13 @@ public class User {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "User [firstName=" + firstName + ", lastName=" + lastName
+				+ ", email=" + email + ", password=" + password + ", locked="
+				+ locked + ", orders=" + orders + "]";
+	}
+	
 
 }
