@@ -10,4 +10,5 @@ import java.lang.annotation.Target;
 public @interface ViewProperty {
 	String name() default "";
 	boolean showInDefaultModel() default true;
+	boolean isTextField() default true;
 }

@@ -12,7 +12,6 @@ public class CampinaAsAService extends Application{
 	@Override
 	public void start(Stage stage) {
 		
-		UserView user = UserView.getInstance();
 		BaseView base = BaseView.getInstance();
 		MenuView menu = MenuView.getInstance();
 		

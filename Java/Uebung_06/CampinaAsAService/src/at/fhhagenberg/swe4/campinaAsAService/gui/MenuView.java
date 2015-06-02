@@ -21,15 +21,31 @@ public class MenuView {
 		menuBar = new MenuBar();
 		Menu menuFile = new Menu("File");
 	    MenuItem users = new MenuItem("Manage Users");
+	    MenuItem orders = new MenuItem("ShowOrders");
+	    MenuItem catagories = new MenuItem("Manage Catagories");
+	    
 	    users.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
-				System.out.println("Manage User Pressed");
 				UserView view = UserView.getInstance();
-				BaseView.getInstance().getPane().setCenter(view.getUserPane());
+				BaseView.getInstance().getPane().setCenter(view.getPane());
 			}
 		});
-		menuFile.getItems().add(users);
+	    orders.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+				ShowOrdersView view = ShowOrdersView.getInstance();
+				BaseView.getInstance().getPane().setCenter(view.getPane());
+			}
+		});
+	    catagories.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+				CatagorieView view = CatagorieView.getInstance();
+				BaseView.getInstance().getPane().setCenter(view.getPane());
+			}
+		});
+		menuFile.getItems().addAll(users,orders,catagories);
 	    menuBar.getMenus().add(menuFile);
 	}
 	

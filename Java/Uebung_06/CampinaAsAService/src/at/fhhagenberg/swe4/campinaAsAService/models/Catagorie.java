@@ -1,9 +1,12 @@
 package at.fhhagenberg.swe4.campinaAsAService.models;
 
+import at.fhhagenberg.swe4.campinaAsAService.annotations.ViewProperty;
+
 public class Catagorie {
 	
-	
+	@ViewProperty(name="Catagorie")
 	private String catagorieName;
+	@ViewProperty(name="Description")
 	private String descirption;
 	
 	public Catagorie() {

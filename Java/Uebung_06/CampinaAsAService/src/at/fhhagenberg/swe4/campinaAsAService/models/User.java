@@ -14,9 +14,9 @@ public class User {
 	private String email;
 	@ViewProperty(name="Password")
 	private String password;
-	@ViewProperty(name="Locked")
+	@ViewProperty(name="Locked", isTextField=false)
 	private boolean locked;
-	@ViewProperty(name="Orders", showInDefaultModel=false)
+	@ViewProperty(name="Orders", showInDefaultModel=false, isTextField=false)
 	private List<Order> orders;
 
 	public User() {
@@ -36,7 +36,7 @@ public class User {
 		return firstName;
 	}
 
-	public void FirstName(String firstName) {
+	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
 
