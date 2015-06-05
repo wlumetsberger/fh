@@ -1,38 +1,32 @@
 package at.fhhagenberg.swe4.campinaAsAService.controller;
 
-import java.time.LocalDateTime;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import at.fhhagenberg.swe4.campinaAsAService.dao.Dao;
 import at.fhhagenberg.swe4.campinaAsAService.dao.OrderDao;
-import at.fhhagenberg.swe4.campinaAsAService.gui.ShowOrdersView;
-import at.fhhagenberg.swe4.campinaAsAService.models.Catagorie;
-import at.fhhagenberg.swe4.campinaAsAService.models.Meal;
 import at.fhhagenberg.swe4.campinaAsAService.models.Order;
-import at.fhhagenberg.swe4.campinaAsAService.models.User;
+
 /**
  * 
  * @author Wolfgang
  *
  */
-public class OrderController extends Controller<Order>{
+public class OrderController extends
+		Controller<Order> {
 
-	
-	public ObservableList<Order> loadDataList(){
-		ObservableList<Order> list =  FXCollections.observableArrayList();
+	public ObservableList<Order> loadDataList() {
+		ObservableList<Order> list = FXCollections
+				.observableArrayList();
 		Dao d = (Dao) new OrderDao();
 		list.addAll(d.findAll());
 		return list;
 	}
-	
+
 	@Override
 	public Class getDataClass() {
 		return Order.class;
 	}
+
 	@Override
 	public Order newDataInstance() {
 		return new Order();

@@ -1,14 +1,17 @@
 package at.fhhagenberg.swe4.campinaAsAService.gui;
 
 import at.fhhagenberg.swe4.campinaAsAService.controller.CatagorieController;
-import at.fhhagenberg.swe4.campinaAsAService.controller.UserController;
 import at.fhhagenberg.swe4.campinaAsAService.models.Catagorie;
+
 /**
- * Master-Detail View Class for Catagories
+ * Master-Detail View Class for
+ * Catagories
+ * 
  * @author Wolfgang
  *
  */
-public class CatagorieView extends BasicMasterDetailView<Catagorie>{
+public class CatagorieView extends
+		BasicMasterDetailView<Catagorie> {
 
 	private static CatagorieView instance;
 

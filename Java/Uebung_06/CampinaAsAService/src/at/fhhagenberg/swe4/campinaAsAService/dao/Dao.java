@@ -1,6 +1,7 @@
 package at.fhhagenberg.swe4.campinaAsAService.dao;
 
 import java.util.List;
+
 /**
  * 
  * @author Wolfgang
@@ -9,7 +10,10 @@ import java.util.List;
  */
 public interface Dao<T> {
 	public List<T> findAll();
+
 	public T save(T element);
+
 	public T get(T element);
+
 	public T remove(T element);
 }

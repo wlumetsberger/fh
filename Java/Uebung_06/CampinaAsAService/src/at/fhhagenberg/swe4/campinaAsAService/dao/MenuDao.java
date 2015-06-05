@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import at.fhhagenberg.swe4.campinaAsAService.models.Menu;
+
 /**
  * 
  * @author Wolfgang
  *
  */
-public class MenuDao implements Dao<Menu>{
+public class MenuDao implements
+		Dao<Menu> {
 
 	@Override
 	public List<Menu> findAll() {
@@ -25,7 +27,7 @@ public class MenuDao implements Dao<Menu>{
 	public Menu get(Menu element) {
 		return element;
 	}
-	
+
 	@Override
 	public Menu remove(Menu element) {
 		// TODO Auto-generated method stub

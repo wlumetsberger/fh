@@ -1,8 +1,6 @@
 package at.fhhagenberg.swe4.campinaAsAService.models;
 
-
 import java.time.LocalDateTime;
-import java.util.Date;
 
 import at.fhhagenberg.swe4.campinaAsAService.annotations.ViewProperty;
 import at.fhhagenberg.swe4.campinaAsAService.dao.Dao;
@@ -13,23 +11,25 @@ import at.fhhagenberg.swe4.campinaAsAService.dao.OrderDao;
  * @author Wolfgang
  *
  */
-public class Order implements BaseModel{
+public class Order implements BaseModel {
 
-	@ViewProperty(name="User")
+	@ViewProperty(name = "User")
 	private User user;
-	@ViewProperty(name="Meal")
+	@ViewProperty(name = "Meal")
 	private Meal meal;
-	@ViewProperty(name="Order Date")
+	@ViewProperty(name = "Order Date")
 	private LocalDateTime orderDate;
-	@ViewProperty(name="Serve Date")
+	@ViewProperty(name = "Serve Date")
 	private LocalDateTime serveDate;
-	@ViewProperty(name="Additional Text")
+	@ViewProperty(name = "Additional Text")
 	private String additionalText;
-	
+
 	public Order() {
 	}
 
-	public Order(User user, Meal meal, LocalDateTime orderDate, LocalDateTime serveDate,
+	public Order(User user, Meal meal,
+			LocalDateTime orderDate,
+			LocalDateTime serveDate,
 			String additionalText) {
 		super();
 		this.user = user;
@@ -39,11 +39,11 @@ public class Order implements BaseModel{
 		this.additionalText = additionalText;
 	}
 
-	
-	
 	@Override
 	public String toString() {
-		return "Order [user=" + user + ", meal=" + meal + ", orderDate="
+		return "Order [user=" + user
+				+ ", meal=" + meal
+				+ ", orderDate="
 				+ "additionalText="
 				+ additionalText + "]";
 	}
@@ -52,14 +52,26 @@ public class Order implements BaseModel{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result
-				+ ((additionalText == null) ? 0 : additionalText.hashCode());
-		result = prime * result + ((meal == null) ? 0 : meal.hashCode());
-		result = prime * result
-				+ ((orderDate == null) ? 0 : orderDate.hashCode());
-		result = prime * result
-				+ ((serveDate == null) ? 0 : serveDate.hashCode());
-		result = prime * result + ((user == null) ? 0 : user.hashCode());
+		result = prime
+				* result
+				+ ((additionalText == null) ? 0
+						: additionalText.hashCode());
+		result = prime
+				* result
+				+ ((meal == null) ? 0 : meal
+						.hashCode());
+		result = prime
+				* result
+				+ ((orderDate == null) ? 0
+						: orderDate.hashCode());
+		result = prime
+				* result
+				+ ((serveDate == null) ? 0
+						: serveDate.hashCode());
+		result = prime
+				* result
+				+ ((user == null) ? 0 : user
+						.hashCode());
 		return result;
 	}
 
@@ -75,7 +87,8 @@ public class Order implements BaseModel{
 		if (additionalText == null) {
 			if (other.additionalText != null)
 				return false;
-		} else if (!additionalText.equals(other.additionalText))
+		} else if (!additionalText
+				.equals(other.additionalText))
 			return false;
 		if (meal == null) {
 			if (other.meal != null)
@@ -85,12 +98,14 @@ public class Order implements BaseModel{
 		if (orderDate == null) {
 			if (other.orderDate != null)
 				return false;
-		} else if (!orderDate.equals(other.orderDate))
+		} else if (!orderDate
+				.equals(other.orderDate))
 			return false;
 		if (serveDate == null) {
 			if (other.serveDate != null)
 				return false;
-		} else if (!serveDate.equals(other.serveDate))
+		} else if (!serveDate
+				.equals(other.serveDate))
 			return false;
 		if (user == null) {
 			if (other.user != null)
@@ -120,7 +135,8 @@ public class Order implements BaseModel{
 		return orderDate;
 	}
 
-	public void setOrderDate(LocalDateTime orderDate) {
+	public void setOrderDate(
+			LocalDateTime orderDate) {
 		this.orderDate = orderDate;
 	}
 
@@ -128,7 +144,8 @@ public class Order implements BaseModel{
 		return serveDate;
 	}
 
-	public void setServeDate(LocalDateTime serveDate) {
+	public void setServeDate(
+			LocalDateTime serveDate) {
 		this.serveDate = serveDate;
 	}
 
@@ -136,13 +153,14 @@ public class Order implements BaseModel{
 		return additionalText;
 	}
 
-	public void setAdditionalText(String additionalText) {
+	public void setAdditionalText(
+			String additionalText) {
 		this.additionalText = additionalText;
 	}
-	
+
 	@Override
 	public Dao getDao() {
-		return  new OrderDao();
+		return new OrderDao();
 	}
-	
+
 }

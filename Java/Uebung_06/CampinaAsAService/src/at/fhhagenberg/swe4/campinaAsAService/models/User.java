@@ -11,26 +11,27 @@ import at.fhhagenberg.swe4.campinaAsAService.dao.UserDao;
  * @author Wolfgang
  *
  */
-public class User implements BaseModel{
+public class User implements BaseModel {
 
-	@ViewProperty(name="Firstname")
+	@ViewProperty(name = "Firstname")
 	private String firstName;
-	@ViewProperty(name="Lastname")
+	@ViewProperty(name = "Lastname")
 	private String lastName;
-	@ViewProperty(name="Email")
+	@ViewProperty(name = "Email")
 	private String email;
-	@ViewProperty(name="Password")
+	@ViewProperty(name = "Password")
 	private String password;
-	@ViewProperty(name="Locked", isTextField=false)
+	@ViewProperty(name = "Locked", isTextField = false)
 	private boolean locked;
-	@ViewProperty(name="Orders", isComboBox=false, isTextField=false)
+	@ViewProperty(name = "Orders", isComboBox = false, isTextField = false)
 	private List<Order> orders;
 
 	public User() {
 	}
 
-	public User(String firstName, String lastName, String email, String password,
-			boolean locked) {
+	public User(String firstName,
+			String lastName, String email,
+			String password, boolean locked) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -43,7 +44,8 @@ public class User implements BaseModel{
 		return firstName;
 	}
 
-	public void setFirstName(String firstName) {
+	public void setFirstName(
+			String firstName) {
 		this.firstName = firstName;
 	}
 
@@ -51,7 +53,8 @@ public class User implements BaseModel{
 		return lastName;
 	}
 
-	public void setLastName(String lastName) {
+	public void setLastName(
+			String lastName) {
 		this.lastName = lastName;
 	}
 
@@ -67,7 +70,8 @@ public class User implements BaseModel{
 		return password;
 	}
 
-	public void setPassword(String password) {
+	public void setPassword(
+			String password) {
 		this.password = password;
 	}
 
@@ -82,21 +86,34 @@ public class User implements BaseModel{
 	public List<Order> getOrders() {
 		return orders;
 	}
-	public void setOrders(List<Order> orders) {
+
+	public void setOrders(
+			List<Order> orders) {
 		this.orders = orders;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime
+				* result
+				+ ((email == null) ? 0 : email
+						.hashCode());
+		result = prime
+				* result
+				+ ((firstName == null) ? 0
+						: firstName.hashCode());
+		result = prime
+				* result
+				+ ((lastName == null) ? 0
+						: lastName.hashCode());
 		result = prime * result
-				+ ((lastName == null) ? 0 : lastName.hashCode());
-		result = prime * result + (locked ? 1231 : 1237);
-		result = prime * result
-				+ ((password == null) ? 0 : password.hashCode());
+				+ (locked ? 1231 : 1237);
+		result = prime
+				* result
+				+ ((password == null) ? 0
+						: password.hashCode());
 		return result;
 	}
 
@@ -112,24 +129,28 @@ public class User implements BaseModel{
 		if (email == null) {
 			if (other.email != null)
 				return false;
-		} else if (!email.equals(other.email))
+		} else if (!email
+				.equals(other.email))
 			return false;
 		if (firstName == null) {
 			if (other.firstName != null)
 				return false;
-		} else if (!firstName.equals(other.firstName))
+		} else if (!firstName
+				.equals(other.firstName))
 			return false;
 		if (lastName == null) {
 			if (other.lastName != null)
 				return false;
-		} else if (!lastName.equals(other.lastName))
+		} else if (!lastName
+				.equals(other.lastName))
 			return false;
 		if (locked != other.locked)
 			return false;
 		if (password == null) {
 			if (other.password != null)
 				return false;
-		} else if (!password.equals(other.password))
+		} else if (!password
+				.equals(other.password))
 			return false;
 		return true;
 	}
@@ -138,11 +159,10 @@ public class User implements BaseModel{
 	public String toString() {
 		return firstName + " " + lastName;
 	}
-	
+
 	@Override
 	public Dao getDao() {
 		return new UserDao();
 	}
-	
 
 }
