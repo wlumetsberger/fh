@@ -9,7 +9,12 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 
-public class ShowOrdersView  extends BasicMasterDetailView<ShowOrderModel>{
+/**
+ * Master-Detail View for Order
+ * @author Wolfgang
+ *
+ */
+public class ShowOrdersView  extends BasicMasterDetailView<Order>{
 
 	private static ShowOrdersView instance;
 	

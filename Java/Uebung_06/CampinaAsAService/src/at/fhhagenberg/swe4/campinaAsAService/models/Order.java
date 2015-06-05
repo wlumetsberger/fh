@@ -1,21 +1,35 @@
 package at.fhhagenberg.swe4.campinaAsAService.models;
 
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
-public class Order {
+import at.fhhagenberg.swe4.campinaAsAService.annotations.ViewProperty;
+import at.fhhagenberg.swe4.campinaAsAService.dao.Dao;
+import at.fhhagenberg.swe4.campinaAsAService.dao.OrderDao;
 
+/**
+ * 
+ * @author Wolfgang
+ *
+ */
+public class Order implements BaseModel{
+
+	@ViewProperty(name="User")
 	private User user;
+	@ViewProperty(name="Meal")
 	private Meal meal;
-	private Date orderDate;
-	private Date serveDate;
+	@ViewProperty(name="Order Date")
+	private LocalDateTime orderDate;
+	@ViewProperty(name="Serve Date")
+	private LocalDateTime serveDate;
+	@ViewProperty(name="Additional Text")
 	private String additionalText;
 	
 	public Order() {
-		// TODO Auto-generated constructor stub
 	}
 
-	public Order(User user, Meal meal, Date orderDate, Date serveDate,
+	public Order(User user, Meal meal, LocalDateTime orderDate, LocalDateTime serveDate,
 			String additionalText) {
 		super();
 		this.user = user;
@@ -30,7 +44,7 @@ public class Order {
 	@Override
 	public String toString() {
 		return "Order [user=" + user + ", meal=" + meal + ", orderDate="
-				+ orderDate + ", serveDate=" + serveDate + ", additionalText="
+				+ "additionalText="
 				+ additionalText + "]";
 	}
 
@@ -102,19 +116,19 @@ public class Order {
 		this.meal = meal;
 	}
 
-	public Date getOrderDate() {
+	public LocalDateTime getOrderDate() {
 		return orderDate;
 	}
 
-	public void setOrderDate(Date orderDate) {
+	public void setOrderDate(LocalDateTime orderDate) {
 		this.orderDate = orderDate;
 	}
 
-	public Date getServeDate() {
+	public LocalDateTime getServeDate() {
 		return serveDate;
 	}
 
-	public void setServeDate(Date serveDate) {
+	public void setServeDate(LocalDateTime serveDate) {
 		this.serveDate = serveDate;
 	}
 
@@ -126,5 +140,9 @@ public class Order {
 		this.additionalText = additionalText;
 	}
 	
+	@Override
+	public Dao getDao() {
+		return  new OrderDao();
+	}
 	
 }

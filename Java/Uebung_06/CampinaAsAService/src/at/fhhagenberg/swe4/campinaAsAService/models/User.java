@@ -3,8 +3,15 @@ package at.fhhagenberg.swe4.campinaAsAService.models;
 import java.util.List;
 
 import at.fhhagenberg.swe4.campinaAsAService.annotations.ViewProperty;
+import at.fhhagenberg.swe4.campinaAsAService.dao.Dao;
+import at.fhhagenberg.swe4.campinaAsAService.dao.UserDao;
 
-public class User {
+/**
+ * 
+ * @author Wolfgang
+ *
+ */
+public class User implements BaseModel{
 
 	@ViewProperty(name="Firstname")
 	private String firstName;
@@ -16,7 +23,7 @@ public class User {
 	private String password;
 	@ViewProperty(name="Locked", isTextField=false)
 	private boolean locked;
-	@ViewProperty(name="Orders", showInDefaultModel=false, isTextField=false)
+	@ViewProperty(name="Orders", isComboBox=false, isTextField=false)
 	private List<Order> orders;
 
 	public User() {
@@ -129,9 +136,12 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [firstName=" + firstName + ", lastName=" + lastName
-				+ ", email=" + email + ", password=" + password + ", locked="
-				+ locked + ", orders=" + orders + "]";
+		return firstName + " " + lastName;
+	}
+	
+	@Override
+	public Dao getDao() {
+		return new UserDao();
 	}
 	
 

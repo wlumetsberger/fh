@@ -1,36 +1,40 @@
 package at.fhhagenberg.swe4.campinaAsAService.controller;
 
+import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import at.fhhagenberg.swe4.campinaAsAService.gui.ShowOrderModel;
+import at.fhhagenberg.swe4.campinaAsAService.dao.Dao;
+import at.fhhagenberg.swe4.campinaAsAService.dao.OrderDao;
 import at.fhhagenberg.swe4.campinaAsAService.gui.ShowOrdersView;
 import at.fhhagenberg.swe4.campinaAsAService.models.Catagorie;
 import at.fhhagenberg.swe4.campinaAsAService.models.Meal;
 import at.fhhagenberg.swe4.campinaAsAService.models.Order;
 import at.fhhagenberg.swe4.campinaAsAService.models.User;
-
-public class OrderController extends Controller<ShowOrderModel>{
+/**
+ * 
+ * @author Wolfgang
+ *
+ */
+public class OrderController extends Controller<Order>{
 
 	
-	public ObservableList<ShowOrderModel> loadDataList(){
-		ObservableList<ShowOrderModel> list =  FXCollections.observableArrayList();
-		Catagorie testCat = new Catagorie("Deftiges","Hausmannskost");
-		Meal testMeal1 = new Meal(1,"Schnitzel","Wiener Schnitzel vom Schwein mit Kartoffeln",testCat, new Date(), new Date());
-		Meal testMeal2 = new Meal(2,"Gschnetzelts","Gschnetzelts vom Schwein mit Kartoffeln",testCat, new Date(), new Date());
-		list.add(new ShowOrderModel(new Order(new User("Wolfgang","Lumetsberger","w.lumetsberger@gmail.com","asdf",false),testMeal1 , new Date(), new Date(), "")));
-		list.add(new ShowOrderModel(new Order(new User("Hugo","Test","hugo.test@gmail.com","asdf",false),testMeal2 , new Date(), new Date(), "Gruß aus der Küche erwünscht")));
+	public ObservableList<Order> loadDataList(){
+		ObservableList<Order> list =  FXCollections.observableArrayList();
+		Dao d = (Dao) new OrderDao();
+		list.addAll(d.findAll());
 		return list;
 	}
 	
 	@Override
 	public Class getDataClass() {
-		return ShowOrderModel.class;
+		return Order.class;
 	}
 	@Override
-	public ShowOrderModel newDataInstance() {
-		return new ShowOrderModel();
+	public Order newDataInstance() {
+		return new Order();
 	}
 }

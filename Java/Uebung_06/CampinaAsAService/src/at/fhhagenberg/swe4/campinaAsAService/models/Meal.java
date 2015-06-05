@@ -1,21 +1,39 @@
 package at.fhhagenberg.swe4.campinaAsAService.models;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
-public class Meal {
+import at.fhhagenberg.swe4.campinaAsAService.annotations.ViewProperty;
+import at.fhhagenberg.swe4.campinaAsAService.dao.Dao;
+import at.fhhagenberg.swe4.campinaAsAService.dao.MealDao;
+/**
+ * 
+ * @author Wolfgang
+ *
+ */
+public class Meal implements BaseModel{
 	
+
 	private int mealId;
+	@ViewProperty(name="Name")
 	private String name;
+	@ViewProperty(name="Description")
 	private String description;
+	@ViewProperty(name="Catagorie", isComboBox=true, isTextField=false)
 	private Catagorie catagorie;
-	private Date dateFrom;
-	private Date dateTo;
+	@ViewProperty(name="Date From", isTextField=false)
+	private LocalDateTime dateFrom;
+	@ViewProperty(name="Date To", isTextField=false)
+	private LocalDateTime dateTo;
+	@ViewProperty(name="Price")
+	private Double price;
 	
 	public Meal() {
 	}
 
 	public Meal(int mealId, String name, String description,
-			Catagorie catagorie, Date dateFrom, Date dateTo) {
+			Catagorie catagorie, LocalDateTime dateFrom, LocalDateTime dateTo, Double price) {
 		super();
 		this.mealId = mealId;
 		this.name = name;
@@ -23,13 +41,12 @@ public class Meal {
 		this.catagorie = catagorie;
 		this.dateFrom = dateFrom;
 		this.dateTo = dateTo;
+		this.price = price;
 	}
 
 	@Override
 	public String toString() {
-		return "Meal [mealId=" + mealId + ", name=" + name + ", description="
-				+ description + ", catagorie=" + catagorie + ", dateFrom="
-				+ dateFrom + ", dateTo=" + dateTo + "]";
+		return name;
 	}
 
 	@Override
@@ -119,21 +136,30 @@ public class Meal {
 		this.catagorie = catagorie;
 	}
 
-	public Date getDateFrom() {
+	public LocalDateTime getDateFrom() {
 		return dateFrom;
 	}
 
-	public void setDateFrom(Date dateFrom) {
+	public void setDateFrom(LocalDateTime dateFrom) {
 		this.dateFrom = dateFrom;
 	}
 
-	public Date getDateTo() {
+	public LocalDateTime getDateTo() {
 		return dateTo;
 	}
 
-	public void setDateTo(Date dateTo) {
+	public void setDateTo(LocalDateTime dateTo) {
 		this.dateTo = dateTo;
 	}
+	public Double getPrice() {
+		return price;
+	}
+	public void setPrice(Double price) {
+		this.price = price;
+	}
 	
-	
+	@Override
+	public Dao getDao() {
+		return new MealDao();
+	}
 }

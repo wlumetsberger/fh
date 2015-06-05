@@ -1,16 +1,23 @@
 package at.fhhagenberg.swe4.campinaAsAService.controller;
 
 import javafx.collections.ObservableList;
+import at.fhhagenberg.swe4.campinaAsAService.dao.Dao;
+import at.fhhagenberg.swe4.campinaAsAService.models.BaseModel;
 import at.fhhagenberg.swe4.campinaAsAService.models.User;
-
-public abstract class Controller<T> {
+/**
+ * 
+ * @author Wolfgang
+ *
+ * @param <T>
+ */
+public abstract class Controller<T extends BaseModel> {
 
 	protected T detailData;
 	protected ObservableList<T> dataList;
 	
 	public Controller() {
-		dataList = loadDataList();
 		detailData = newDataInstance();
+		dataList = loadDataList();
 	}
 	
 	public abstract ObservableList<T> loadDataList();
@@ -33,6 +40,8 @@ public abstract class Controller<T> {
 		if(!this.dataList.contains(detailData)){
 			this.dataList.add(detailData);
 		}
+		Dao<T> d = detailData.getDao();
+	    d.save(detailData);
 		detailData = newDataInstance();
 		
 	}
@@ -40,7 +49,8 @@ public abstract class Controller<T> {
 		if(this.detailData != null && this.dataList.contains(this.detailData)){
 			this.dataList.remove(this.detailData);
 		}
-		detailData = newDataInstance();
+		Dao d = detailData.getDao();
+	    d.remove(detailData);
 	}
 	
 }

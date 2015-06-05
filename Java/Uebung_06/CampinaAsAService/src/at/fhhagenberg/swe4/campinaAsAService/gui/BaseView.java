@@ -3,6 +3,12 @@ package at.fhhagenberg.swe4.campinaAsAService.gui;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
+/**
+ * Base ViewClass 
+ * Every Other View will be rendered to BaseView
+ * @author Wolfgang
+ *
+ */
 public class BaseView {
 	
 	private static BaseView instance;

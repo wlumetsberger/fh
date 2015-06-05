@@ -6,7 +6,11 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.*;
-
+/**
+ * 
+ * @author Wolfgang
+ *
+ */
 public class CampinaAsAService extends Application{
 
 	@Override
@@ -16,11 +20,11 @@ public class CampinaAsAService extends Application{
 		MenuView menu = MenuView.getInstance();
 		
 		base.getPane().setTop(menu.getMenuBar());
-		Scene scene = new Scene(base.getPane(),1024,768);
+		Scene scene = new Scene(base.getPane(),1600,900);
 		
 		stage.setTitle("Campina as a service");
-        stage.setWidth(1024);
-        stage.setHeight(768);
+        stage.setWidth(1600);
+        stage.setHeight(900);
         stage.setScene(scene);
         
         stage.show();

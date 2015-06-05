@@ -1,19 +1,33 @@
 package at.fhhagenberg.swe4.campinaAsAService.models;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
-public class Menu {
+import at.fhhagenberg.swe4.campinaAsAService.annotations.ViewProperty;
+import at.fhhagenberg.swe4.campinaAsAService.dao.Dao;
+import at.fhhagenberg.swe4.campinaAsAService.dao.MenuDao;
 
+/**
+ * 
+ * @author Wolfgang
+ *
+ */
+public class Menu implements BaseModel {
+
+	@ViewProperty(name="Name")
 	private String name;
+	@ViewProperty(name="Description")
 	private String description;
-	private String dateFrom;
-	private String dateTo;
-	
+	@ViewProperty(name="Date From")
+	private LocalDateTime dateFrom;
+	@ViewProperty(name="Date To")
+	private LocalDateTime dateTo;
+	@ViewProperty(name="MealList", showInDefaultModel=false)
 	private List<Meal> meals;
 
 	
-	public Menu(String name, String description, String dateFrom,
-			String dateTo, List<Meal> meals) {
+	public Menu(String name, String description, LocalDateTime dateFrom,
+			LocalDateTime dateTo, List<Meal> meals) {
 		super();
 		this.name = name;
 		this.description = description;
@@ -96,19 +110,19 @@ public class Menu {
 		this.description = description;
 	}
 
-	public String getDateFrom() {
+	public LocalDateTime getDateFrom() {
 		return dateFrom;
 	}
 
-	public void setDateFrom(String dateFrom) {
+	public void setDateFrom(LocalDateTime dateFrom) {
 		this.dateFrom = dateFrom;
 	}
 
-	public String getDateTo() {
+	public LocalDateTime getDateTo() {
 		return dateTo;
 	}
 
-	public void setDateTo(String dateTo) {
+	public void setDateTo(LocalDateTime dateTo) {
 		this.dateTo = dateTo;
 	}
 
@@ -118,6 +132,10 @@ public class Menu {
 
 	public void setMeals(List<Meal> meals) {
 		this.meals = meals;
+	}
+	@Override
+	public Dao getDao() {
+		return new MenuDao();
 	}
 	
 	

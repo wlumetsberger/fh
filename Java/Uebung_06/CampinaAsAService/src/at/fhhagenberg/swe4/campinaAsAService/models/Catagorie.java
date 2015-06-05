@@ -1,8 +1,13 @@
 package at.fhhagenberg.swe4.campinaAsAService.models;
 
 import at.fhhagenberg.swe4.campinaAsAService.annotations.ViewProperty;
-
-public class Catagorie {
+import at.fhhagenberg.swe4.campinaAsAService.dao.CatagorieDao;
+/**
+ * 
+ * @author Wolfgang
+ *
+ */
+public class Catagorie implements BaseModel{
 	
 	@ViewProperty(name="Catagorie")
 	private String catagorieName;
@@ -21,8 +26,7 @@ public class Catagorie {
 	
 	@Override
 	public String toString() {
-		return "Catagorie [catagorieName=" + catagorieName + ", descirption="
-				+ descirption + "]";
+		return catagorieName ;
 	}
 
 	@Override
@@ -68,6 +72,11 @@ public class Catagorie {
 	public void setDescirption(String descirption) {
 		this.descirption = descirption;
 	}
-	
+	/**
+	 * Create instance of Dao
+	 */
+	public CatagorieDao getDao(){
+		return new CatagorieDao();
+	}
 	
 }

@@ -2,18 +2,28 @@ package at.fhhagenberg.swe4.campinaAsAService.gui;
 
 import at.fhhagenberg.swe4.campinaAsAService.controller.Controller;
 import at.fhhagenberg.swe4.campinaAsAService.helper.Util;
+import at.fhhagenberg.swe4.campinaAsAService.models.BaseModel;
 import at.fhhagenberg.swe4.campinaAsAService.models.User;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 
-public class BasicMasterDetailView<T> {
+/**
+ * BasicView Class Provides a Basic MasterDetailView
+ * To Create a new DetailView for a new Class only 
+ * needs to extend from this Class with new DataClass
+ * @author Wolfgang
+ *
+ * @param <T>
+ */
+public class BasicMasterDetailView<T extends BaseModel> {
 
 	protected GridPane pane;
 	protected GridPane detailPane;
@@ -25,12 +35,19 @@ public class BasicMasterDetailView<T> {
 
 	protected Controller<T> controller;
 
+	/**
+	 * Constructor Creates new MasterDetailView
+	 */
 	public BasicMasterDetailView() {
 		pane = new GridPane();
 		pane.setId("default-panel-user-view");
 
 	}
 
+	
+	/**
+	 * Fill Basic Table
+	 */
 	protected void fillTableData() {
 		master = Util.<T> generateTableView(controller.getDataClass());
 		master.setItems(controller.getDataList());
@@ -41,27 +58,46 @@ public class BasicMasterDetailView<T> {
 		pane.getChildren().add(master);
 	}
 
+	/**
+	 * Generate DetailSection
+	 * Editable or not Editable
+	 * @param editable
+	 */
 	protected void generateDetailSection(boolean editable) {
 		detailPane = (Util.<T> generateDetailDialog(controller.getDataClass(),
 				editable));
-		pane.setRowIndex(detailPane, 2);
+		pane.setRowIndex(detailPane, 3);
 		pane.setColumnIndex(detailPane, 1);
 		pane.getChildren().addAll(detailPane);
 		if (editable) {
-			HBox box = new HBox();
-			saveButton = new Button();
-			saveButton.setText("Save");
+			HBox addBox = new HBox();
+			addBox.setPadding(new Insets(10, 10, 10, 10));
 			addNewButton = new Button();
 			addNewButton.setText("Add new");
+			addNewButton.setId("add-new-button");
+			addBox.getChildren().addAll(addNewButton);
+			pane.setRowIndex(addBox, 2);
+			pane.setColumnIndex(addBox, 1);
+			HBox box = new HBox();
+			box.setPadding(new Insets(10, 10, 10, 10));
+			saveButton = new Button();
+			saveButton.setText("Save");
+			saveButton.setId("save-button");
+			
 			deleteButton = new Button();
 			deleteButton.setText("Delete Entry");
-			box.getChildren().addAll(saveButton, addNewButton, deleteButton);
-			pane.setRowIndex(box, 3);
+			deleteButton.setId("delete-button");
+			box.getChildren().addAll(saveButton, deleteButton);
+			pane.setRowIndex(box, 4);
 			pane.setColumnIndex(box, 1);
-			pane.getChildren().add(box);
+			pane.getChildren().addAll(box, addBox);
 		}
+		Util.writeValuesToDetailPane(detailPane, controller.getDetailData());
 	}
 
+	/**
+	 * Register EventHandlers too Basic Buttons (add-New, save, delete )
+	 */
 	protected void registerEvents() {
 		master.getSelectionModel().selectedItemProperty()
 				.addListener(new ChangeListener<T>() {
@@ -114,12 +150,19 @@ public class BasicMasterDetailView<T> {
 
 	}
 
+	/**
+	 * private Method to refresh TableView
+	 */
 	private void refreshTable() {
 		master.setItems(null);
 		master.layout();
 		master.setItems(this.controller.getDataList());
 	}
 
+	/**
+	 * Return GridPane created in Constructor
+	 * @return
+	 */
 	public GridPane getPane() {
 		return pane;
 	}

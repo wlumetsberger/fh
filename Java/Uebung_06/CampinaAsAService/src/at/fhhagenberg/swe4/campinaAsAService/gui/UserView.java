@@ -42,6 +42,11 @@ import at.fhhagenberg.swe4.campinaAsAService.helper.Util;
 import at.fhhagenberg.swe4.campinaAsAService.models.Order;
 import at.fhhagenberg.swe4.campinaAsAService.models.User;
 
+/**
+ * Master-Detail view for User
+ * @author Wolfgang
+ *
+ */
 public class UserView extends BasicMasterDetailView<User> {
 
 	private static UserView instance;

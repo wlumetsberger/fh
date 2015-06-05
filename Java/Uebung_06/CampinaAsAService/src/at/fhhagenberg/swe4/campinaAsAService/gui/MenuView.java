@@ -5,7 +5,12 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-
+/**
+ * Menu View Class
+ * This class generates a Menu
+ * @author Wolfgang
+ *
+ */
 public class MenuView {
 
 	private MenuBar menuBar;
@@ -23,6 +28,7 @@ public class MenuView {
 	    MenuItem users = new MenuItem("Manage Users");
 	    MenuItem orders = new MenuItem("ShowOrders");
 	    MenuItem catagories = new MenuItem("Manage Catagories");
+	    MenuItem menues = new MenuItem("Manage Menu");
 	    
 	    users.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -45,7 +51,14 @@ public class MenuView {
 				BaseView.getInstance().getPane().setCenter(view.getPane());
 			}
 		});
-		menuFile.getItems().addAll(users,orders,catagories);
+	    menues.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent arg0) {
+				MealView view = MealView.getInstance();
+				BaseView.getInstance().getPane().setCenter(view.getPane());
+			}
+		});
+		menuFile.getItems().addAll(users,orders,catagories,menues);
 	    menuBar.getMenus().add(menuFile);
 	}
 	
