@@ -1,6 +1,7 @@
 package swe4.rmi.hello;
 
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
 import java.time.LocalDateTime;
 
 public class HelloServiceImpl implements HelloService{
@@ -21,10 +22,28 @@ public class HelloServiceImpl implements HelloService{
 	}
 
 	@Override
-	public int nextId()
+	public synchronized int nextId()
 			throws RemoteException {
-		// TODO Auto-generated method stub
-		return 0;
+		int value = counter;
+		try{
+			Thread.sleep(100);
+		}catch(InterruptedException e){
+			
+		}
+		counter = value +1;
+		System.out.printf("NextId=%d , (thread: %d) %n",counter, Thread.currentThread().getId());
+		return counter;
 	}
-
+	
+	public static void main(String[] args) {
+		
+		 // version 1: start rmiRegistry via commandLine -> files have to be in classpath of rmiRegistry process
+		String host_port = args[0];
+		try{
+			LocateRegistry.createRegistry(getPort(host_port));
+	
+		}catch(Exception ex){
+			
+		}
+	}
 }
