@@ -1,7 +1,10 @@
 package swe4.rmi.hello;
 
+import java.rmi.Naming;
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
+import java.rmi.server.UnicastRemoteObject;
 import java.time.LocalDateTime;
 
 public class HelloServiceImpl implements HelloService{
@@ -41,7 +44,12 @@ public class HelloServiceImpl implements HelloService{
 		String host_port = args[0];
 		try{
 			LocateRegistry.createRegistry(getPort(host_port));
-	
+			HelloService service = new HelloServiceImpl();
+			Remote serviceStrub = UnicastRemoteObject.exportObject(service,0);
+			
+			Naming.rebind("rmi://"+ host_port +"/HelloService", serviceStrub);
+			
+			System.out.println("Service available on: rmi://"+ host_port +"/HelloService");
 		}catch(Exception ex){
 			
 		}
