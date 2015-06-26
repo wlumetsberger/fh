@@ -11,8 +11,7 @@ import at.fhhagenberg.swe4.campinaAsAService.models.UserViewModel;
  * @author Wolfgang
  *
  */
-public class UserController extends
-		Controller<UserViewModel> {
+public class UserController extends Controller<UserViewModel> {
 
 	@Override
 	public ObservableList<UserViewModel> loadDataList() {
@@ -21,16 +20,6 @@ public class UserController extends
 		Dao d = new UserDao();
 		list.addAll(d.findAll());
 		return list;
-	}
-
-	@Override
-	public void saveDetail() {
-		if (!this.dataList
-				.contains(detailData)) {
-			this.dataList.add(detailData);
-		}
-		detailData = new UserViewModel();
-
 	}
 
 	@Override

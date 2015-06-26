@@ -15,11 +15,8 @@ import at.fhhagenberg.swe4.campinaAsAService.helper.Util;
 import at.fhhagenberg.swe4.campinaAsAService.models.BaseViewModel;
 
 /**
- * BasicView Class Provides a Basic
- * MasterDetailView To Create a new
- * DetailView for a new Class only needs
- * to extend from this Class with new
- * DataClass
+ * BasicView Class Provides a Basic MasterDetailView To Create a new DetailView
+ * for a new Class only needs to extend from this Class with new DataClass
  * 
  * @author Wolfgang
  *
@@ -38,8 +35,7 @@ public class BasicMasterDetailView<T extends BaseViewModel> {
 	protected Controller<T> controller;
 
 	/**
-	 * Constructor Creates new
-	 * MasterDetailView
+	 * Constructor Creates new MasterDetailView
 	 */
 	public BasicMasterDetailView() {
 		pane = new GridPane();
@@ -51,146 +47,105 @@ public class BasicMasterDetailView<T extends BaseViewModel> {
 	 * Fill Basic Table
 	 */
 	protected void fillTableData() {
-		master = Util
-				.<T> generateTableView(controller
-						.getDataClass());
-		master.setItems(controller
-				.getDataList());
+		master = Util.<T> generateTableView(controller.getDataClass());
+		master.setItems(controller.getDataList());
 		pane.setRowIndex(master, 1);
 		pane.setColumnIndex(master, 1);
-		pane.setHgrow(master,
-				Priority.ALWAYS);
-		pane.setVgrow(master,
-				Priority.ALWAYS);
+		pane.setHgrow(master, Priority.ALWAYS);
+		pane.setVgrow(master, Priority.ALWAYS);
 		pane.getChildren().add(master);
 	}
 
 	/**
-	 * Generate DetailSection Editable or
-	 * not Editable
+	 * Generate DetailSection Editable or not Editable
 	 * 
 	 * @param editable
 	 */
-	protected void generateDetailSection(
-			boolean editable) {
-		detailPane = (Util
-				.<T> generateDetailDialog(
-						controller.getDataClass(),
-						editable));
+	protected void generateDetailSection(boolean editable) {
+		detailPane = (Util.<T> generateDetailDialog(controller.getDataClass(),
+				editable));
 		pane.setRowIndex(detailPane, 3);
 		pane.setColumnIndex(detailPane, 1);
-		pane.getChildren().addAll(
-				detailPane);
+		pane.getChildren().addAll(detailPane);
 		if (editable) {
 			HBox addBox = new HBox();
-			addBox.setPadding(new Insets(10,
-					10, 10, 10));
+			addBox.setPadding(new Insets(10, 10, 10, 10));
 			addNewButton = new Button();
 			addNewButton.setText("Add new");
-			addNewButton
-					.setId("add-new-button");
-			addBox.getChildren().addAll(
-					addNewButton);
+			addNewButton.setId("add-new-button");
+			addBox.getChildren().addAll(addNewButton);
 			pane.setRowIndex(addBox, 2);
 			pane.setColumnIndex(addBox, 1);
 			HBox box = new HBox();
-			box.setPadding(new Insets(10, 10,
-					10, 10));
+			box.setPadding(new Insets(10, 10, 10, 10));
 			saveButton = new Button();
 			saveButton.setText("Save");
 			saveButton.setId("save-button");
 
 			deleteButton = new Button();
-			deleteButton
-					.setText("Delete Entry");
-			deleteButton
-					.setId("delete-button");
-			box.getChildren().addAll(
-					saveButton, deleteButton);
+			deleteButton.setText("Delete Entry");
+			deleteButton.setId("delete-button");
+			box.getChildren().addAll(saveButton, deleteButton);
 			pane.setRowIndex(box, 4);
 			pane.setColumnIndex(box, 1);
-			pane.getChildren().addAll(box,
-					addBox);
+			pane.getChildren().addAll(box, addBox);
 		}
-		Util.writeValuesToDetailPane(
-				detailPane,
-				controller.getDetailData());
+		Util.writeValuesToDetailPane(detailPane, controller.getDetailData());
 	}
 
 	/**
-	 * Register EventHandlers too Basic
-	 * Buttons (add-New, save, delete )
+	 * Register EventHandlers too Basic Buttons (add-New, save, delete )
 	 */
 	protected void registerEvents() {
-		master
-				.getSelectionModel()
-				.selectedItemProperty()
-				.addListener(
-						new ChangeListener<T>() {
-							public void changed(
-									ObservableValue<? extends T> observable,
-									T oldValue, T newValue) {
-								if (newValue != null) {
-									controller
-											.setDetailData(newValue);
-									Util.writeValuesToDetailPane(
-											detailPane,
-											controller
-													.getDetailData());
-								}
+		master.getSelectionModel().selectedItemProperty()
+				.addListener(new ChangeListener<T>() {
+					public void changed(
+							ObservableValue<? extends T> observable,
+							T oldValue, T newValue) {
+						if (newValue != null) {
+							controller.setDetailData(newValue);
+							Util.writeValuesToDetailPane(detailPane,
+									controller.getDetailData());
+						}
 
-							}
-						});
+					}
+				});
 
 		if (saveButton != null) {
-			saveButton
-					.setOnAction(new EventHandler<ActionEvent>() {
-						@Override
-						public void handle(
-								ActionEvent arg0) {
-							Util.getValuesFromDetailPane(
-									detailPane,
-									controller
-											.getDetailData());
-							controller.saveDetail();
-							refreshTable();
-							Util.writeValuesToDetailPane(
-									detailPane,
-									controller
-											.getDetailData());
-						}
-					});
+			saveButton.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent arg0) {
+					Util.getValuesFromDetailPane(detailPane,
+							controller.getDetailData());
+					controller.saveDetail();
+					Util.writeValuesToDetailPane(detailPane,
+							controller.getDetailData());
+					refreshTable();
+				}
+
+			});
 		}
 		if (addNewButton != null) {
-			addNewButton
-					.setOnAction(new EventHandler<ActionEvent>() {
-						@Override
-						public void handle(
-								ActionEvent arg0) {
-							controller
-									.setDetailData(controller
-											.newDataInstance());
-							Util.writeValuesToDetailPane(
-									detailPane,
-									controller
-											.getDetailData());
-						}
-					});
+			addNewButton.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent arg0) {
+					controller.setDetailData(controller.newDataInstance());
+					Util.writeValuesToDetailPane(detailPane,
+							controller.getDetailData());
+					refreshTable();
+				}
+			});
 		}
 		if (deleteButton != null) {
-			deleteButton
-					.setOnAction(new EventHandler<ActionEvent>() {
-						@Override
-						public void handle(
-								ActionEvent arg0) {
-							controller.deleteDetail();
-							refreshTable();
-							Util.writeValuesToDetailPane(
-									detailPane,
-									controller
-											.getDetailData());
-						}
-					});
+			deleteButton.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent arg0) {
+					controller.deleteDetail();
+					Util.writeValuesToDetailPane(detailPane,
+							controller.getDetailData());
+					refreshTable();
+				}
+			});
 		}
 
 	}
@@ -201,17 +156,16 @@ public class BasicMasterDetailView<T extends BaseViewModel> {
 	private void refreshTable() {
 		master.setItems(null);
 		master.layout();
-		master.setItems(this.controller
-				.getDataList());
+		master.setItems(this.controller.getDataList());
 	}
 
 	/**
-	 * Return GridPane created in
-	 * Constructor
+	 * Return GridPane created in Constructor
 	 * 
 	 * @return
 	 */
 	public GridPane getPane() {
+		this.refreshTable();
 		return pane;
 	}
 }

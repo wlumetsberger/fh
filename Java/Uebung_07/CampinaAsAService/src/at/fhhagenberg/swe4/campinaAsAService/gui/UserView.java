@@ -9,8 +9,7 @@ import at.fhhagenberg.swe4.campinaAsAService.models.UserViewModel;
  * @author Wolfgang
  *
  */
-public class UserView extends
-		BasicMasterDetailView<UserViewModel> {
+public class UserView extends BasicMasterDetailView<UserViewModel> {
 
 	private static UserView instance;
 

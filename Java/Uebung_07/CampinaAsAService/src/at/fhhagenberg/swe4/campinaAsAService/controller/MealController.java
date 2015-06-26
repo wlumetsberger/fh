@@ -11,15 +11,13 @@ import at.fhhagenberg.swe4.campinaAsAService.models.MealViewModel;
  * @author Wolfgang
  *
  */
-public class MealController extends
-		Controller<MealViewModel> {
+public class MealController extends Controller<MealViewModel> {
 
 	@Override
 	public ObservableList<MealViewModel> loadDataList() {
 		Dao dao = new MealDao();
 		ObservableList<MealViewModel> list = FXCollections
-				.observableArrayList(dao
-						.findAll());
+				.observableArrayList(dao.findAll());
 		return list;
 	}
 

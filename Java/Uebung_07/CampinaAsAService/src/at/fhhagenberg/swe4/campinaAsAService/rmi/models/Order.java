@@ -2,40 +2,38 @@ package at.fhhagenberg.swe4.campinaAsAService.rmi.models;
 
 import java.time.LocalDateTime;
 
-import at.fhhagenberg.swe4.campinaAsAService.annotations.ViewProperty;
+import at.fhhagenberg.swe4.campinaAsAService.models.OrderViewModel;
 import at.fhhagenberg.swe4.campinaAsAService.rmi.annotations.DataBaseConnections;
 import at.fhhagenberg.swe4.campinaAsAService.rmi.annotations.DataBaseFieldProperty;
 import at.fhhagenberg.swe4.campinaAsAService.rmi.annotations.DataBaseTableProperty;
-import at.fhhagenberg.swe4.campinaAsAService.rmi.daos.BaseDao;
+import at.fhhagenberg.swe4.campinaAsAService.rmi.daos.OrderDao;
 
 /**
  * 
  * @author Wolfgang
  *
  */
-@DataBaseTableProperty(tableName="Order")
+@DataBaseTableProperty(tableName = "ORDER")
 public class Order extends BaseModel {
 
-	@DataBaseFieldProperty(column="id", key=true)
-	private int id;
-	@DataBaseFieldProperty(column = "user_id", connectionType=DataBaseConnections.ManyToOne, foreignClass=User.class)
+	@DataBaseFieldProperty(column = "ID", key = true, generated = true)
+	private Integer id;
+	@DataBaseFieldProperty(foreign = true, column = "USER_ID", connectionType = DataBaseConnections.ManyToOne, foreignClass = User.class)
 	private User user;
-	@DataBaseFieldProperty(column = "meal_id", connectionType=DataBaseConnections.ManyToOne, foreignClass=Meal.class)
+	@DataBaseFieldProperty(foreign = true, column = "MEAL_ID", connectionType = DataBaseConnections.ManyToOne, foreignClass = Meal.class)
 	private Meal meal;
-	@DataBaseFieldProperty(column = "order_date")
+	@DataBaseFieldProperty(column = "ORDER_DATE")
 	private LocalDateTime orderDate;
-	@DataBaseFieldProperty(column = "serve_date")
+	@DataBaseFieldProperty(column = "SERVE_DATE")
 	private LocalDateTime serveDate;
-	@DataBaseFieldProperty(column = "additional_text")
+	@DataBaseFieldProperty(column = "ADDITIONAL_TEXT")
 	private String additionalText;
 
 	public Order() {
 	}
 
-	public Order(int id,User user, Meal meal,
-			LocalDateTime orderDate,
-			LocalDateTime serveDate,
-			String additionalText) {
+	public Order(Integer id, User user, Meal meal, LocalDateTime orderDate,
+			LocalDateTime serveDate, String additionalText) {
 		super();
 		this.id = id;
 		this.user = user;
@@ -47,37 +45,22 @@ public class Order extends BaseModel {
 
 	@Override
 	public String toString() {
-		return "Order [user=" + user
-				+ ", meal=" + meal
-				+ ", orderDate="
-				+ "additionalText="
-				+ additionalText + "]";
+		return "Order [user=" + user + ", meal=" + meal + ", orderDate="
+				+ "additionalText=" + additionalText + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime
-				* result
-				+ ((additionalText == null) ? 0
-						: additionalText.hashCode());
-		result = prime
-				* result
-				+ ((meal == null) ? 0 : meal
-						.hashCode());
-		result = prime
-				* result
-				+ ((orderDate == null) ? 0
-						: orderDate.hashCode());
-		result = prime
-				* result
-				+ ((serveDate == null) ? 0
-						: serveDate.hashCode());
-		result = prime
-				* result
-				+ ((user == null) ? 0 : user
-						.hashCode());
+		result = prime * result
+				+ ((additionalText == null) ? 0 : additionalText.hashCode());
+		result = prime * result + ((meal == null) ? 0 : meal.hashCode());
+		result = prime * result
+				+ ((orderDate == null) ? 0 : orderDate.hashCode());
+		result = prime * result
+				+ ((serveDate == null) ? 0 : serveDate.hashCode());
+		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
 
@@ -93,8 +76,7 @@ public class Order extends BaseModel {
 		if (additionalText == null) {
 			if (other.additionalText != null)
 				return false;
-		} else if (!additionalText
-				.equals(other.additionalText))
+		} else if (!additionalText.equals(other.additionalText))
 			return false;
 		if (meal == null) {
 			if (other.meal != null)
@@ -104,14 +86,12 @@ public class Order extends BaseModel {
 		if (orderDate == null) {
 			if (other.orderDate != null)
 				return false;
-		} else if (!orderDate
-				.equals(other.orderDate))
+		} else if (!orderDate.equals(other.orderDate))
 			return false;
 		if (serveDate == null) {
 			if (other.serveDate != null)
 				return false;
-		} else if (!serveDate
-				.equals(other.serveDate))
+		} else if (!serveDate.equals(other.serveDate))
 			return false;
 		if (user == null) {
 			if (other.user != null)
@@ -141,8 +121,7 @@ public class Order extends BaseModel {
 		return orderDate;
 	}
 
-	public void setOrderDate(
-			LocalDateTime orderDate) {
+	public void setOrderDate(LocalDateTime orderDate) {
 		this.orderDate = orderDate;
 	}
 
@@ -150,8 +129,7 @@ public class Order extends BaseModel {
 		return serveDate;
 	}
 
-	public void setServeDate(
-			LocalDateTime serveDate) {
+	public void setServeDate(LocalDateTime serveDate) {
 		this.serveDate = serveDate;
 	}
 
@@ -159,20 +137,22 @@ public class Order extends BaseModel {
 		return additionalText;
 	}
 
-	public void setAdditionalText(
-			String additionalText) {
+	public void setAdditionalText(String additionalText) {
 		this.additionalText = additionalText;
 	}
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
-	public void setId(int orderId) {
+	public void setId(Integer orderId) {
 		this.id = orderId;
 	}
 	@Override
-	public BaseDao getDao() {
-		// TODO Auto-generated method stub
-		return null;
+	public OrderDao getDao() {
+		return OrderDao.getInstance();
+	}
+	@Override
+	public Class getViewModell() {
+		return OrderViewModel.class;
 	}
 
 }

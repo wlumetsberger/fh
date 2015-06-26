@@ -20,4 +20,6 @@ public @interface ViewProperty {
 	boolean isTextField() default true;
 
 	boolean isComboBox() default false;
+
+	boolean editable() default true;
 }

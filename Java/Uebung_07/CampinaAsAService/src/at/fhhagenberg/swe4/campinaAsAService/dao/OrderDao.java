@@ -1,59 +1,44 @@
 package at.fhhagenberg.swe4.campinaAsAService.dao;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 
-import at.fhhagenberg.swe4.campinaAsAService.models.MealViewModel;
 import at.fhhagenberg.swe4.campinaAsAService.models.OrderViewModel;
-import at.fhhagenberg.swe4.campinaAsAService.models.UserViewModel;
+import at.fhhagenberg.swe4.campinaAsAService.rmi.models.Order;
+import at.fhhagenberg.swe4.campinaAsAService.rmi.service.interfaces.ServiceInterface;
 
 /**
  * 
  * @author Wolfgang
  *
  */
-public class OrderDao implements
-		Dao<OrderViewModel> {
+public class OrderDao extends BaseDao<OrderViewModel, Order> {
 
-	/**
-	 * Returns Orderd List
-	 */
-	@Override
-	public List<OrderViewModel> findAll() {
-		List<OrderViewModel> orderList = new ArrayList();
-		List<MealViewModel> mealList = new MealDao()
-				.findAll();
-		UserViewModel u = new UserDao().findAll()
-				.get(0);
-		int orderId = 1;
-		for (MealViewModel m : mealList) {
-			orderList.add(new OrderViewModel(orderId,u, m,
-					LocalDateTime.now(),
-					LocalDateTime.now(), ""));
-			orderId++;
-			orderList.add(new OrderViewModel(orderId,u, m,
-					LocalDateTime.now(),
-					LocalDateTime.now(), ""));
-			orderId++;
+	private ServiceInterface<Order> serviceInterface;
+
+	public OrderDao() {
+		try {
+			this.serviceInterface = (ServiceInterface<Order>) Naming
+					.lookup("rmi://localhost:4707" + "/OrderService");
+		} catch (MalformedURLException |RemoteException | NotBoundException e) {
+			e.printStackTrace();
 		}
-		return orderList;
+	}
+	@Override
+	protected Class getDataBaseModelClass() {
+		return Order.class;
 	}
 
 	@Override
-	public OrderViewModel save(OrderViewModel element) {
-		return element;
+	protected Class getViewModelClass() {
+		return OrderViewModel.class;
 	}
 
 	@Override
-	public OrderViewModel get(OrderViewModel element) {
-		return element;
-	}
-
-	@Override
-	public OrderViewModel remove(OrderViewModel element) {
-		// TODO Auto-generated method stub
-		return null;
+	public ServiceInterface<Order> getServiceInterface() {
+		return this.serviceInterface;
 	}
 
 }

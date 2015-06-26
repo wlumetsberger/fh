@@ -3,8 +3,7 @@ package at.fhhagenberg.swe4.campinaAsAService.gui;
 import javafx.scene.layout.BorderPane;
 
 /**
- * Base ViewClass Every Other View will
- * be rendered to BaseView
+ * Base ViewClass Every Other View will be rendered to BaseView
  * 
  * @author Wolfgang
  *

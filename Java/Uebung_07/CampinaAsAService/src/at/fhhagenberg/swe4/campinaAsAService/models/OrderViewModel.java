@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import at.fhhagenberg.swe4.campinaAsAService.annotations.ViewProperty;
 import at.fhhagenberg.swe4.campinaAsAService.dao.Dao;
 import at.fhhagenberg.swe4.campinaAsAService.dao.OrderDao;
+import at.fhhagenberg.swe4.campinaAsAService.rmi.models.Order;
 
 /**
  * 
@@ -13,8 +14,8 @@ import at.fhhagenberg.swe4.campinaAsAService.dao.OrderDao;
  */
 public class OrderViewModel implements BaseViewModel {
 
-	@ViewProperty(name="ID")
-	private int id;
+	@ViewProperty(name = "ID")
+	private Integer id;
 	@ViewProperty(name = "User")
 	private UserViewModel user;
 	@ViewProperty(name = "Meal")
@@ -29,9 +30,8 @@ public class OrderViewModel implements BaseViewModel {
 	public OrderViewModel() {
 	}
 
-	public OrderViewModel(int id,UserViewModel user, MealViewModel meal,
-			LocalDateTime orderDate,
-			LocalDateTime serveDate,
+	public OrderViewModel(int id, UserViewModel user, MealViewModel meal,
+			LocalDateTime orderDate, LocalDateTime serveDate,
 			String additionalText) {
 		super();
 		this.id = id;
@@ -44,37 +44,15 @@ public class OrderViewModel implements BaseViewModel {
 
 	@Override
 	public String toString() {
-		return "Order [user=" + user
-				+ ", meal=" + meal
-				+ ", orderDate="
-				+ "additionalText="
-				+ additionalText + "]";
+		return "Order [user=" + user + ", meal=" + meal + ", orderDate="
+				+ "additionalText=" + additionalText + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime
-				* result
-				+ ((additionalText == null) ? 0
-						: additionalText.hashCode());
-		result = prime
-				* result
-				+ ((meal == null) ? 0 : meal
-						.hashCode());
-		result = prime
-				* result
-				+ ((orderDate == null) ? 0
-						: orderDate.hashCode());
-		result = prime
-				* result
-				+ ((serveDate == null) ? 0
-						: serveDate.hashCode());
-		result = prime
-				* result
-				+ ((user == null) ? 0 : user
-						.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -87,33 +65,10 @@ public class OrderViewModel implements BaseViewModel {
 		if (getClass() != obj.getClass())
 			return false;
 		OrderViewModel other = (OrderViewModel) obj;
-		if (additionalText == null) {
-			if (other.additionalText != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!additionalText
-				.equals(other.additionalText))
-			return false;
-		if (meal == null) {
-			if (other.meal != null)
-				return false;
-		} else if (!meal.equals(other.meal))
-			return false;
-		if (orderDate == null) {
-			if (other.orderDate != null)
-				return false;
-		} else if (!orderDate
-				.equals(other.orderDate))
-			return false;
-		if (serveDate == null) {
-			if (other.serveDate != null)
-				return false;
-		} else if (!serveDate
-				.equals(other.serveDate))
-			return false;
-		if (user == null) {
-			if (other.user != null)
-				return false;
-		} else if (!user.equals(other.user))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
@@ -138,8 +93,7 @@ public class OrderViewModel implements BaseViewModel {
 		return orderDate;
 	}
 
-	public void setOrderDate(
-			LocalDateTime orderDate) {
+	public void setOrderDate(LocalDateTime orderDate) {
 		this.orderDate = orderDate;
 	}
 
@@ -147,8 +101,7 @@ public class OrderViewModel implements BaseViewModel {
 		return serveDate;
 	}
 
-	public void setServeDate(
-			LocalDateTime serveDate) {
+	public void setServeDate(LocalDateTime serveDate) {
 		this.serveDate = serveDate;
 	}
 
@@ -156,20 +109,23 @@ public class OrderViewModel implements BaseViewModel {
 		return additionalText;
 	}
 
-	public void setAdditionalText(
-			String additionalText) {
+	public void setAdditionalText(String additionalText) {
 		this.additionalText = additionalText;
 	}
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
-	public void setId(int orderId) {
+	public void setId(Integer orderId) {
 		this.id = orderId;
 	}
 
 	@Override
 	public Dao getDao() {
 		return new OrderDao();
+	}
+	@Override
+	public Class getDbModell() {
+		return Order.class;
 	}
 
 }

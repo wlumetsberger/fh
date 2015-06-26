@@ -9,8 +9,7 @@ import at.fhhagenberg.swe4.campinaAsAService.models.MealViewModel;
  * @author Wolfgang
  *
  */
-public class MealView extends
-		BasicMasterDetailView<MealViewModel> {
+public class MealView extends BasicMasterDetailView<MealViewModel> {
 	private static MealView instance;
 
 	private MealView() {

@@ -1,10 +1,9 @@
 package at.fhhagenberg.swe4.campinaAsAService.rmi.models;
 
+import at.fhhagenberg.swe4.campinaAsAService.models.CatagorieViewModel;
 import at.fhhagenberg.swe4.campinaAsAService.rmi.annotations.DataBaseFieldProperty;
 import at.fhhagenberg.swe4.campinaAsAService.rmi.annotations.DataBaseTableProperty;
-import at.fhhagenberg.swe4.campinaAsAService.rmi.daos.BaseDao;
 import at.fhhagenberg.swe4.campinaAsAService.rmi.daos.CatagorieDao;
-
 
 /**
  * 
@@ -14,20 +13,17 @@ import at.fhhagenberg.swe4.campinaAsAService.rmi.daos.CatagorieDao;
 @DataBaseTableProperty(tableName = "Catagorie")
 public class Catagorie extends BaseModel {
 
-	@DataBaseFieldProperty(column="id", key=true)
-	private int id;
+	@DataBaseFieldProperty(column = "id", key = true, generated = true)
+	private Integer id;
 	@DataBaseFieldProperty(column = "name")
 	private String catagorieName;
-	@DataBaseFieldProperty(column ="description")
+	@DataBaseFieldProperty(column = "description")
 	private String descirption;
 
 	public Catagorie() {
 	}
 
-	public Catagorie(
-			int id,
-			String catagorieName,
-			String descirption) {
+	public Catagorie(Integer id, String catagorieName, String descirption) {
 		super();
 		this.catagorieName = catagorieName;
 		this.descirption = descirption;
@@ -39,20 +35,14 @@ public class Catagorie extends BaseModel {
 		return catagorieName;
 	}
 
-	
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime
-				* result
-				+ ((catagorieName == null) ? 0
-						: catagorieName.hashCode());
-		result = prime
-				* result
-				+ ((descirption == null) ? 0
-						: descirption.hashCode());
+		result = prime * result
+				+ ((catagorieName == null) ? 0 : catagorieName.hashCode());
+		result = prime * result
+				+ ((descirption == null) ? 0 : descirption.hashCode());
 		result = prime * result + id;
 		return result;
 	}
@@ -69,14 +59,12 @@ public class Catagorie extends BaseModel {
 		if (catagorieName == null) {
 			if (other.catagorieName != null)
 				return false;
-		} else if (!catagorieName
-				.equals(other.catagorieName))
+		} else if (!catagorieName.equals(other.catagorieName))
 			return false;
 		if (descirption == null) {
 			if (other.descirption != null)
 				return false;
-		} else if (!descirption
-				.equals(other.descirption))
+		} else if (!descirption.equals(other.descirption))
 			return false;
 		if (id != other.id)
 			return false;
@@ -87,8 +75,7 @@ public class Catagorie extends BaseModel {
 		return catagorieName;
 	}
 
-	public void setCatagorieName(
-			String catagorieName) {
+	public void setCatagorieName(String catagorieName) {
 		this.catagorieName = catagorieName;
 	}
 
@@ -96,20 +83,23 @@ public class Catagorie extends BaseModel {
 		return descirption;
 	}
 
-	public void setDescirption(
-			String descirption) {
+	public void setDescirption(String descirption) {
 		this.descirption = descirption;
 	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+
 	@Override
 	public CatagorieDao getDao() {
-		return new CatagorieDao();
+		return CatagorieDao.getInstance();
 	}
 
+	@Override
+	public Class getViewModell() {
+		return CatagorieViewModel.class;
+	}
 }

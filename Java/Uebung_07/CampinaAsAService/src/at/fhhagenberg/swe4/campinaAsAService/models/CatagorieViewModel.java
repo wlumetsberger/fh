@@ -2,17 +2,17 @@ package at.fhhagenberg.swe4.campinaAsAService.models;
 
 import at.fhhagenberg.swe4.campinaAsAService.annotations.ViewProperty;
 import at.fhhagenberg.swe4.campinaAsAService.dao.CatagorieDao;
+import at.fhhagenberg.swe4.campinaAsAService.rmi.models.Catagorie;
 
 /**
  * 
  * @author Wolfgang
  *
  */
-public class CatagorieViewModel implements
-		BaseViewModel {
+public class CatagorieViewModel implements BaseViewModel {
 
-	@ViewProperty(name="ID")
-	private int id;
+	@ViewProperty(name = "ID", editable = false)
+	private Integer id;
 	@ViewProperty(name = "Catagorie")
 	private String catagorieName;
 	@ViewProperty(name = "Description")
@@ -21,10 +21,7 @@ public class CatagorieViewModel implements
 	public CatagorieViewModel() {
 	}
 
-	public CatagorieViewModel(
-			int id,
-			String catagorieName,
-			String descirption) {
+	public CatagorieViewModel(int id, String catagorieName, String descirption) {
 		super();
 		this.catagorieName = catagorieName;
 		this.descirption = descirption;
@@ -36,19 +33,10 @@ public class CatagorieViewModel implements
 		return catagorieName;
 	}
 
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime
-				* result
-				+ ((catagorieName == null) ? 0
-						: catagorieName.hashCode());
-		result = prime
-				* result
-				+ ((descirption == null) ? 0
-						: descirption.hashCode());
 		result = prime * result + id;
 		return result;
 	}
@@ -57,25 +45,14 @@ public class CatagorieViewModel implements
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		}
 		CatagorieViewModel other = (CatagorieViewModel) obj;
-		if (catagorieName == null) {
-			if (other.catagorieName != null)
-				return false;
-		} else if (!catagorieName
-				.equals(other.catagorieName))
+		if (!this.getId().equals(other.getId())) {
 			return false;
-		if (descirption == null) {
-			if (other.descirption != null)
-				return false;
-		} else if (!descirption
-				.equals(other.descirption))
-			return false;
-		if (id != other.id)
-			return false;
+		}
+
 		return true;
 	}
 
@@ -83,8 +60,7 @@ public class CatagorieViewModel implements
 		return catagorieName;
 	}
 
-	public void setCatagorieName(
-			String catagorieName) {
+	public void setCatagorieName(String catagorieName) {
 		this.catagorieName = catagorieName;
 	}
 
@@ -92,14 +68,13 @@ public class CatagorieViewModel implements
 		return descirption;
 	}
 
-	public void setDescirption(
-			String descirption) {
+	public void setDescirption(String descirption) {
 		this.descirption = descirption;
 	}
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -108,6 +83,10 @@ public class CatagorieViewModel implements
 	 */
 	public CatagorieDao getDao() {
 		return new CatagorieDao();
+	}
+	@Override
+	public Class getDbModell() {
+		return Catagorie.class;
 	}
 
 }

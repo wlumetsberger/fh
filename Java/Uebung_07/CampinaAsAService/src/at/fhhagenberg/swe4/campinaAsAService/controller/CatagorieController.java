@@ -10,15 +10,13 @@ import at.fhhagenberg.swe4.campinaAsAService.models.CatagorieViewModel;
  * @author Wolfgang
  *
  */
-public class CatagorieController extends
-		Controller<CatagorieViewModel> {
+public class CatagorieController extends Controller<CatagorieViewModel> {
 
 	@Override
 	public ObservableList<CatagorieViewModel> loadDataList() {
 		ObservableList<CatagorieViewModel> list = FXCollections
 				.observableArrayList();
-		list.addAll(new CatagorieDao()
-				.findAll());
+		list.addAll(new CatagorieDao().findAll());
 		return list;
 	}
 

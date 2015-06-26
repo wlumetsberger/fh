@@ -26,12 +26,15 @@ public abstract class Controller<T extends BaseViewModel> {
 
 	public abstract T newDataInstance();
 
+	public void refreshDataList() {
+		this.dataList = this.loadDataList();
+	}
 	public ObservableList<T> getDataList() {
+		this.dataList = this.loadDataList();
 		return dataList;
 	}
 
-	public void setDataList(
-			ObservableList<T> dataList) {
+	public void setDataList(ObservableList<T> dataList) {
 		this.dataList = dataList;
 	}
 
@@ -44,25 +47,19 @@ public abstract class Controller<T extends BaseViewModel> {
 	}
 
 	public void saveDetail() {
-		if (!this.dataList
-				.contains(detailData)) {
-			this.dataList.add(detailData);
-		}
-		Dao<T> d = detailData.getDao();
+		Dao d = detailData.getDao();
 		d.save(detailData);
 		detailData = newDataInstance();
-
+		this.refreshDataList();
 	}
 
 	public void deleteDetail() {
-		if (this.detailData != null
-				&& this.dataList
-						.contains(this.detailData)) {
-			this.dataList
-					.remove(this.detailData);
+		if (this.detailData != null && this.dataList.contains(this.detailData)) {
+			Dao d = detailData.getDao();
+			d.remove(detailData);
+			this.refreshDataList();
 		}
-		Dao d = detailData.getDao();
-		d.remove(detailData);
+
 	}
 
 }

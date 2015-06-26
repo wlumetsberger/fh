@@ -2,11 +2,10 @@ package at.fhhagenberg.swe4.campinaAsAService.rmi.models;
 
 import java.time.LocalDateTime;
 
-import at.fhhagenberg.swe4.campinaAsAService.annotations.ViewProperty;
+import at.fhhagenberg.swe4.campinaAsAService.models.MealViewModel;
 import at.fhhagenberg.swe4.campinaAsAService.rmi.annotations.DataBaseConnections;
 import at.fhhagenberg.swe4.campinaAsAService.rmi.annotations.DataBaseFieldProperty;
 import at.fhhagenberg.swe4.campinaAsAService.rmi.annotations.DataBaseTableProperty;
-import at.fhhagenberg.swe4.campinaAsAService.rmi.daos.BaseDao;
 import at.fhhagenberg.swe4.campinaAsAService.rmi.daos.MealDao;
 
 /**
@@ -14,32 +13,30 @@ import at.fhhagenberg.swe4.campinaAsAService.rmi.daos.MealDao;
  * @author Wolfgang
  *
  */
-@DataBaseTableProperty(tableName="Meal")
+@DataBaseTableProperty(tableName = "Meal")
 public class Meal extends BaseModel {
 
-	@DataBaseFieldProperty(column = "id", key=true)
-	private int id;
-	@DataBaseFieldProperty(column ="name")
+	@DataBaseFieldProperty(column = "id", key = true, generated = true)
+	private Integer id;
+	@DataBaseFieldProperty(column = "name")
 	private String name;
-	@DataBaseFieldProperty(column="description")
+	@DataBaseFieldProperty(column = "description")
 	private String description;
-	@DataBaseFieldProperty(column="catagorie_id", foreignClass = Catagorie.class, connectionType=DataBaseConnections.ManyToOne)
+	@DataBaseFieldProperty(foreign = true, column = "catagorie_id", foreignClass = Catagorie.class, connectionType = DataBaseConnections.ManyToOne)
 	private Catagorie catagorie;
-	@DataBaseFieldProperty(column="dateFrom")
+	@DataBaseFieldProperty(column = "date_From")
 	private LocalDateTime dateFrom;
-	@DataBaseFieldProperty(column="dateTo")
+	@DataBaseFieldProperty(column = "date_To")
 	private LocalDateTime dateTo;
-	@DataBaseFieldProperty(column="price")
+	@DataBaseFieldProperty(column = "price")
 	private Double price;
 
 	public Meal() {
 	}
 
-	public Meal(int mealId, String name,
-			String description,
-			Catagorie catagorie,
-			LocalDateTime dateFrom,
-			LocalDateTime dateTo, Double price) {
+	public Meal(Integer mealId, String name, String description,
+			Catagorie catagorie, LocalDateTime dateFrom, LocalDateTime dateTo,
+			Double price) {
 		super();
 		this.id = mealId;
 		this.name = name;
@@ -59,27 +56,15 @@ public class Meal extends BaseModel {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime
-				* result
-				+ ((catagorie == null) ? 0
-						: catagorie.hashCode());
-		result = prime
-				* result
-				+ ((dateFrom == null) ? 0
-						: dateFrom.hashCode());
-		result = prime
-				* result
-				+ ((dateTo == null) ? 0
-						: dateTo.hashCode());
-		result = prime
-				* result
-				+ ((description == null) ? 0
-						: description.hashCode());
+		result = prime * result
+				+ ((catagorie == null) ? 0 : catagorie.hashCode());
+		result = prime * result
+				+ ((dateFrom == null) ? 0 : dateFrom.hashCode());
+		result = prime * result + ((dateTo == null) ? 0 : dateTo.hashCode());
+		result = prime * result
+				+ ((description == null) ? 0 : description.hashCode());
 		result = prime * result + id;
-		result = prime
-				* result
-				+ ((name == null) ? 0 : name
-						.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 
@@ -95,26 +80,22 @@ public class Meal extends BaseModel {
 		if (catagorie == null) {
 			if (other.catagorie != null)
 				return false;
-		} else if (!catagorie
-				.equals(other.catagorie))
+		} else if (!catagorie.equals(other.catagorie))
 			return false;
 		if (dateFrom == null) {
 			if (other.dateFrom != null)
 				return false;
-		} else if (!dateFrom
-				.equals(other.dateFrom))
+		} else if (!dateFrom.equals(other.dateFrom))
 			return false;
 		if (dateTo == null) {
 			if (other.dateTo != null)
 				return false;
-		} else if (!dateTo
-				.equals(other.dateTo))
+		} else if (!dateTo.equals(other.dateTo))
 			return false;
 		if (description == null) {
 			if (other.description != null)
 				return false;
-		} else if (!description
-				.equals(other.description))
+		} else if (!description.equals(other.description))
 			return false;
 		if (id != other.id)
 			return false;
@@ -126,11 +107,11 @@ public class Meal extends BaseModel {
 		return true;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int mealId) {
+	public void setId(Integer mealId) {
 		this.id = mealId;
 	}
 
@@ -146,8 +127,7 @@ public class Meal extends BaseModel {
 		return description;
 	}
 
-	public void setDescription(
-			String description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
@@ -155,8 +135,7 @@ public class Meal extends BaseModel {
 		return catagorie;
 	}
 
-	public void setCatagorie(
-			Catagorie catagorie) {
+	public void setCatagorie(Catagorie catagorie) {
 		this.catagorie = catagorie;
 	}
 
@@ -164,8 +143,7 @@ public class Meal extends BaseModel {
 		return dateFrom;
 	}
 
-	public void setDateFrom(
-			LocalDateTime dateFrom) {
+	public void setDateFrom(LocalDateTime dateFrom) {
 		this.dateFrom = dateFrom;
 	}
 
@@ -173,8 +151,7 @@ public class Meal extends BaseModel {
 		return dateTo;
 	}
 
-	public void setDateTo(
-			LocalDateTime dateTo) {
+	public void setDateTo(LocalDateTime dateTo) {
 		this.dateTo = dateTo;
 	}
 
@@ -185,10 +162,13 @@ public class Meal extends BaseModel {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-	
+
 	@Override
 	public MealDao getDao() {
-		// TODO Auto-generated method stub
-		return new at.fhhagenberg.swe4.campinaAsAService.rmi.daos.MealDao();
+		return MealDao.getInstance();
+	}
+	@Override
+	public Class getViewModell() {
+		return MealViewModel.class;
 	}
 }

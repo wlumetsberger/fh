@@ -9,8 +9,7 @@ import at.fhhagenberg.swe4.campinaAsAService.models.OrderViewModel;
  * @author Wolfgang
  *
  */
-public class ShowOrdersView extends
-		BasicMasterDetailView<OrderViewModel> {
+public class ShowOrdersView extends BasicMasterDetailView<OrderViewModel> {
 
 	private static ShowOrdersView instance;
 

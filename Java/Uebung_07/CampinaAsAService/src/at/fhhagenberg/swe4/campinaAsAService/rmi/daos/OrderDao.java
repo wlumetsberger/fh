@@ -7,41 +7,41 @@ import java.util.List;
 import java.util.logging.Level;
 
 import at.fhhagenberg.swe4.campinaAsAService.helper.DBUtil;
-import at.fhhagenberg.swe4.campinaAsAService.rmi.models.Meal;
+import at.fhhagenberg.swe4.campinaAsAService.rmi.models.Order;
 
-public class MealDao extends BaseDao<Meal> {
+public class OrderDao extends BaseDao<Order> {
 
-	private static MealDao instance;
+	private static OrderDao instance;
 
-	private MealDao() {
+	private OrderDao() {
 		super();
 	}
 	/**
-	 * get Instance of DAO
+	 * get Instance of Dao
 	 * @return
 	 */
-	public static MealDao getInstance() {
+	public static OrderDao getInstance() {
 		if (instance == null) {
-			instance = new MealDao();
+			instance = new OrderDao();
 		}
 		return instance;
 	}
 	/**
-	 * Find all Meals
+	 * find all Orders
 	 */
 	@Override
-	public List<Meal> findAll() {
-		List<Meal> retVal;
+	public List<Order> findAll() {
+		List<Order> retVal;
 		try {
 			PreparedStatement stmt = DBUtil.getConnection().prepareStatement(
-					DBUtil.generateSelect(Meal.class));
-			retVal = this.executeSelectStatment(stmt, Meal.class);
-
+					DBUtil.generateSelect(Order.class));
+			retVal = this.executeSelectStatment(stmt, Order.class);
 			stmt.close();
 			return retVal;
 		} catch (SQLException e) {
 			log.log(Level.SEVERE,"Cannot Update Statment: ", e);
 		}
-		return new ArrayList<Meal>();
+		return new ArrayList<Order>();
 	}
+
 }

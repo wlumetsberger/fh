@@ -11,8 +11,7 @@ import at.fhhagenberg.swe4.campinaAsAService.models.OrderViewModel;
  * @author Wolfgang
  *
  */
-public class OrderController extends
-		Controller<OrderViewModel> {
+public class OrderController extends Controller<OrderViewModel> {
 
 	public ObservableList<OrderViewModel> loadDataList() {
 		ObservableList<OrderViewModel> list = FXCollections

@@ -1,48 +1,44 @@
 package at.fhhagenberg.swe4.campinaAsAService.dao;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 
 import at.fhhagenberg.swe4.campinaAsAService.models.UserViewModel;
 import at.fhhagenberg.swe4.campinaAsAService.rmi.models.User;
+import at.fhhagenberg.swe4.campinaAsAService.rmi.service.interfaces.ServiceInterface;
 
 /**
  * 
  * @author Wolfgang
  *
  */
-public class UserDao implements
-		Dao<UserViewModel> {
+public class UserDao extends BaseDao<UserViewModel, User> {
 
+	private ServiceInterface<User> serviceInterface;
+
+	public UserDao() {
+		try {
+			this.serviceInterface = (ServiceInterface<User>) Naming
+					.lookup("rmi://localhost:4707" + "/UserService");
+		} catch (MalformedURLException |RemoteException | NotBoundException e) {
+			e.printStackTrace();
+		}
+	}
 	@Override
-	public List<UserViewModel> findAll() {
-		ArrayList<UserViewModel> list = new ArrayList();
-		list.add(new UserViewModel(
-				"Wolfgang",
-				"Lumetsberger",
-				"wolfgang.lumetsberger@gmail.com",
-				"passphrase", false));
-		list.add(new UserViewModel("Max",
-				"Mustermann",
-				"max.mustermann@gmail.com",
-				"maxi123", true));
-		return list;
+	protected Class getDataBaseModelClass() {
+		return User.class;
 	}
 
 	@Override
-	public UserViewModel save(UserViewModel element) {
-		return element;
+	protected Class getViewModelClass() {
+		return UserViewModel.class;
 	}
 
 	@Override
-	public UserViewModel get(UserViewModel element) {
-		return element;
-	}
-
-	@Override
-	public UserViewModel remove(UserViewModel element) {
-		// TODO Auto-generated method stub
-		return null;
+	public ServiceInterface<User> getServiceInterface() {
+		return this.serviceInterface;
 	}
 
 }

@@ -1,51 +1,45 @@
 package at.fhhagenberg.swe4.campinaAsAService.dao;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 
 import at.fhhagenberg.swe4.campinaAsAService.models.MealViewModel;
+import at.fhhagenberg.swe4.campinaAsAService.rmi.models.Meal;
+import at.fhhagenberg.swe4.campinaAsAService.rmi.service.interfaces.ServiceInterface;
 
 /**
  * 
  * @author Wolfgang
  *
  */
-public class MealDao implements
-		Dao<MealViewModel> {
+public class MealDao extends BaseDao<MealViewModel, Meal> {
 
-	@Override
-	public List<MealViewModel> findAll() {
-		List<MealViewModel> retVal = new ArrayList<MealViewModel>();
-		CatagorieDao catDao = new CatagorieDao();
-		retVal.add(new MealViewModel(1, "Schnitzel",
-				"Schnitzel vom Schwein", catDao
-						.findAll().get(0),
-				LocalDateTime.now(),
-				LocalDateTime.now(), 15.00));
-		retVal.add(new MealViewModel(1,
-				"Gschnetzlts",
-				"Gschnetzlts vom Schwein",
-				catDao.findAll().get(0),
-				LocalDateTime.now(),
-				LocalDateTime.now(), 10.90));
-		return retVal;
+	private ServiceInterface<Meal> serviceInterface;
+
+	public MealDao() {
+		try {
+			serviceInterface = (ServiceInterface<Meal>) Naming
+					.lookup("rmi://localhost:4707" + "/MealService");
+		} catch (MalformedURLException |RemoteException | NotBoundException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
-	public MealViewModel save(MealViewModel element) {
-		return element;
+	protected Class getDataBaseModelClass() {
+		return Meal.class;
 	}
 
 	@Override
-	public MealViewModel get(MealViewModel element) {
-		return element;
+	protected Class getViewModelClass() {
+		return MealViewModel.class;
 	}
 
 	@Override
-	public MealViewModel remove(MealViewModel element) {
-		// TODO Auto-generated method stub
-		return null;
+	public ServiceInterface<Meal> getServiceInterface() {
+		return this.serviceInterface;
 	}
 
 }
