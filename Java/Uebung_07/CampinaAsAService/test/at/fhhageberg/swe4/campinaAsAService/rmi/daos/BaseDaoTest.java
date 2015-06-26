@@ -67,13 +67,13 @@ public class BaseDaoTest {
 		List<Catagorie> catagories = CatagorieDao.getInstance().findAll();
 		
 		Meal m = new Meal(null,"Wiener Schnitzel","Wiener Schnitzel vom Schwein",catagories.get(1),LocalDateTime.now().minusDays(10), LocalDateTime.now().plusDays(30),15.0);
-		Meal m2 = new Meal(null,"Gemüse Laibchen","Gemüse Laibchen",catagories.get(0),LocalDateTime.now().minusDays(10), LocalDateTime.now().plusDays(30),14.5);
+		Meal m2 = new Meal(null,"Gemuese Laibchen","Gemuese Laibchen",catagories.get(0),LocalDateTime.now().minusDays(10), LocalDateTime.now().plusDays(30),14.5);
 		
 		MealDao.getInstance().insert(m);
 		MealDao.getInstance().insert(m2);
 		
 		List<Meal> meals = MealDao.getInstance().findAll();
-		Menu menu = new Menu("Tägliches Menü", "Tägliches Menü", LocalDateTime.now().minusDays(10), LocalDateTime.now().plusDays(30), meals);
+		Menu menu = new Menu("Taegliches Menue", "Taegliches Menue", LocalDateTime.now().minusDays(10), LocalDateTime.now().plusDays(30), meals);
 		MenuDao.getInstance().insert(menu);
 		
 		Order o1 = new Order(null, u, meals.get(0), LocalDateTime.now().minusMinutes(30), LocalDateTime.now().plusMinutes(30), "");
